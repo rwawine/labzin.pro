@@ -68,8 +68,13 @@ const blogPosts = [
   // Add more blog posts as needed
 ];
 
+type Props = {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
 // Generate metadata for the blog post
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = blogPosts.find(post => post.slug === params.slug);
   
   if (!post) {
@@ -114,7 +119,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
+export default function BlogPost({ params }: Props) {
   const post = blogPosts.find(post => post.slug === params.slug);
   
   if (!post) {
