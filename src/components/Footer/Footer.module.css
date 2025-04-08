@@ -1,0 +1,178 @@
+.footer {
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 35px 0;
+  font-family: Montserrat;
+}
+
+.footerContent {
+  max-width: 1660px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: flex-start;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 405px;
+}
+
+.logo {
+  width: 100px;
+  height: 43px;
+}
+
+.contactInfo {
+  display: flex;
+  gap: 64px;
+}
+
+.contactBlock, .requisites {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactBlock h3, .requisites h3 {
+  color: #0D0E14;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.requisites p {
+    width: 100%;
+    font-size: 14px;
+}
+
+.phone {
+  color: rgba(26, 26, 26, 0.4);
+  font-size: 14px;
+  margin: 0;
+}
+
+.social, .email {
+  color: #0D0E14;
+  font-size: 14px;
+  margin: 0;
+}
+
+.navigation {
+  max-width: 197px;
+}
+
+.navigation h3 {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navigation li {
+  color: #2F2F33;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navigation li:hover {
+  color: #8A6FF5;
+}
+
+.scrollTop {
+  position: static;
+  right: 20px;
+  top: 40px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #0D0E14;
+  border-radius: 100px;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.scrollTop:hover {
+  background-color: #F5F6FB;
+}
+
+.scrollTop span {
+  color: #0D0E14;
+  font-size: 24px;
+}
+
+.footerBottom {
+  max-width: 1660px;
+  margin: 35px auto 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(26, 26, 26, 0.4);
+  font-size: 14px;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .footerContent {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contacts {
+    max-width: 100%;
+  }
+
+  .contactInfo {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .navigation {
+    max-width: 100%;
+  }
+
+  .scrollTop {
+    position: static;
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 0;
+  }
+
+  .contactInfo {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+} 

@@ -1,0 +1,147 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+.processSteps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.step {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.stepNumber {
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+}
+
+.step h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.step p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.tool {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.tool h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.tool p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.contact {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contactText {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.contactButton {
+  padding: 0.8rem 2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contactButton:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .processSteps {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .step {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .toolsGrid {
+    grid-template-columns: 1fr;
+  }
+} 
