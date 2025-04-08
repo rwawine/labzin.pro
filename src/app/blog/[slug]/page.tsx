@@ -69,15 +69,14 @@ const blogPosts = [
 ];
 
 type Props = {
-  params: { slug: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
 // Generate metadata for the blog post
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-  const post = blogPosts.find(post => post.slug === params.slug);
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const resolvedParams = await props.params;
+  const post = blogPosts.find(post => post.slug === resolvedParams.slug);
   
   if (!post) {
     return {
@@ -121,10 +120,9 @@ export async function generateMetadata(
   };
 }
 
-export default function BlogPost(
-  { params }: Props
-) {
-  const post = blogPosts.find(post => post.slug === params.slug);
+export default async function BlogPost(props: Props) {
+  const resolvedParams = await props.params;
+  const post = blogPosts.find(post => post.slug === resolvedParams.slug);
   
   if (!post) {
     notFound();
