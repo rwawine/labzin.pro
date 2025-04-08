@@ -2,43 +2,64 @@
   position: relative;
   width: 100%;
   font-family: Montserrat;
+  border-radius: 12px;
 }
 
 .label {
   position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: #A2A2AE;
-  transition: all 0.2s ease;
+  top: 20px;
+  left: 15px;
+  color: #888;
   pointer-events: none;
+  transition: all 0.2s ease;
   background-color: white;
-  padding: 0 4px;
+  padding: 0 5px;
 }
 
 .labelFocused {
-  top: 0;
-  transform: translateY(-50%) scale(0.85);
-  color: #3A93FF;
+  top: -10px;
+  font-size: 12px;
+  color: #333;
 }
 
 .input {
+  background-color: #fff;
   width: 100%;
   height: 56px;
-  padding: 0 16px;
-  border: 1px solid #D8DBE1;
-  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   font-size: 16px;
   color: #2F2F33;
   transition: border-color 0.2s ease;
+  box-sizing: border-box;
 }
 
 .input:focus {
   outline: none;
-  border-color: #3A93FF;
+  border-color: #007bff;
 }
 
 .input::placeholder {
   color: #A2A2AE;
+}
+
+.inputError {
+  border-color: red;
+}
+
+.inputError:focus {
+  border-color: red;
+}
+
+.labelError {
+  color: red;
+}
+
+.errorMessage {
+  color: red;
+  text-align: left;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
 } 

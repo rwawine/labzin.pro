@@ -173,6 +173,11 @@
 }
 
 @media (max-width: 1440px) {
+  .buttonProject {
+    margin-left: 0;
+    margin-top: 32px;
+  }
+
   .menuButton {
     display: block;
   }
@@ -197,7 +202,8 @@
     right: 0;
   }
 
-  .link {
+  .link,
+  .linkButton {
     font-size: 1.2rem;
     padding: 0.5rem 0;
     display: block;
@@ -205,6 +211,18 @@
 
   .designMenuContainer {
     width: 100%;
+  }
+
+  .linkButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .linkButton svg {
+    width: 24px;
+    height: 24px;
   }
 }
 

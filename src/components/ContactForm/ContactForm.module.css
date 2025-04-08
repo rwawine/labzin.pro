@@ -1,0 +1,463 @@
+.container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    font-family: Montserrat, sans-serif;
+    max-width: 1660px;
+    height: auto;
+    margin-bottom: 120px;
+    min-height: 638px;
+    background-color: #F7F7F8;
+    border-radius: 16px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.formSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.textarea {
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #C8C8E1;
+    padding: 16px 24px;
+    font-size: 16px;
+    height: 100px;
+    font-weight: 500;
+    color: #0D0E14;
+}
+
+.title {
+    text-align: left;
+    color: #0D0E14;
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.whatsappButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FCFCFE;
+    border-radius: 12px;
+    max-width: 290px;
+    font-weight: 500;
+    padding: 6px 6px 6px 20px;
+    color: #67C15E;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.whatsappButton:hover {
+    background-color: #67C15E;
+    color: #fff;
+}
+
+.whatsappIcon {
+    width: 48px;
+    height: 48px;
+    background-color: #67C15E;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.companyName {
+    text-align: left;
+    margin-top: auto;
+    color: rgba(120, 120, 165, 0.05);
+    font-size: 96px;
+    font-weight: 600;
+}
+
+.formContainer {
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.inputFieldsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.nameAndCompanyContainer,
+.phoneAndEmailContainer {
+    display: flex;
+    gap: 24px;
+}
+
+.fileUploadContainer {
+    height: 100px;
+    background-color: #FFFFFF;
+    border: 1px dashed #C8C8E1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A2A2AE;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fileUploadContainer:hover {
+    border-color: #3A93FE;
+    background-color: rgba(58, 147, 254, 0.05);
+}
+
+.fileUploadContainer span {
+    max-width: 460px;
+    text-align: center;
+}
+
+.attachedFilesContainer {
+    margin-top: 16px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #C8C8E1;
+}
+
+.attachedFilesTitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0D0E14;
+    margin: 0 0 12px 0;
+}
+
+.attachedFilesList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.attachedFileItem {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #F7F7F8;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.attachedFileItem:hover {
+    background-color: #F0F0F5;
+}
+
+.fileIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.fileInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.fileName {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0D0E14;
+    word-break: break-all;
+}
+
+.fileSize {
+    font-size: 12px;
+    color: #A2A2AE;
+}
+
+.removeFileButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.removeFileButton:hover {
+    background-color: rgba(162, 162, 174, 0.1);
+}
+
+.questionContainer {
+    height: 100px;
+    background-color: #FFFFFF;
+    border: 1px solid #C8C8E1;
+    border-radius: 12px;
+    padding: 16px 24px;
+}
+
+.consentContainer {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.checkboxContainer {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+    flex-direction: column;
+}
+
+.checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #C8C8E1;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.checkboxContainer:hover .checkmark {
+    border-color: #3A93FE;
+    background-color: rgba(58, 147, 254, 0.05);
+}
+
+.checkbox:checked ~ .checkmark {
+    background-color: #3A93FE;
+    border-color: #3A93FE;
+}
+
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkboxContainer label {
+    color: #A2A2AE;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.5;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 32px;
+}
+
+.checkboxContainer label a {
+    color: #3A93FE;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.checkboxContainer label a:hover {
+    color: #2B7AE5;
+    text-decoration: underline;
+}
+
+.checkboxError .checkmark {
+    border-color: #FF4D4D;
+}
+
+.checkboxError .checkbox:checked ~ .checkmark {
+    border-color: #FF4D4D;
+    background-color: #FF4D4D;
+}
+
+.errorMessageCheckbox {
+    display: block;
+    color: #FF4D4D;
+    font-size: 12px;
+    margin-top: 4px;
+    margin-left: 32px;
+}
+
+.consentText {
+    color: #A2A2AE;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.submitButton {
+    width: 100%;
+    background-color: #3A93FE;
+    color: #fff;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Montserrat, sans-serif;
+    text-decoration: none;
+    line-height: 150%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    box-shadow: unset;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.submitButton svg path {
+    fill: #fff;
+    transition: fill 0.2s ease;
+}
+
+.submitButton:hover {
+    background-color: #2979E3;
+}
+
+.arrowIcon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1400px) {
+    .container {
+        padding: 30px;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .companyName {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .formSection,
+    .formContainer {
+        max-width: 100%;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .companyName {
+        font-size: 36px;
+        margin-top: 20px;
+    }
+
+    .whatsappButton {
+        width: 100%;
+        max-width: 292px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .companyName {
+        font-size: 30px;
+    }
+
+    .nameAndCompanyContainer,
+    .phoneAndEmailContainer {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .submitButton {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .companyName {
+        font-size: 26px;
+    }
+
+    .whatsappButton {
+        height: 50px;
+        font-size: 14px;
+    }
+
+    .whatsappIcon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .fileUploadContainer,
+    .questionContainer {
+        height: 80px;
+        font-size: 14px;
+    }
+
+    .consentText {
+        font-size: 12px;
+    }
+}

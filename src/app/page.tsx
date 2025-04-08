@@ -1,5 +1,8 @@
 import styles from './page.module.css';
 import { Metadata } from 'next';
+import  ContactForm from '../components/ContactForm';
+import Map from '../components/Map';
+import ClientsResults from '../components/ClientsResults';
 
 export const metadata: Metadata = {
   title: 'Главная | Labzin.pro',
@@ -21,6 +24,10 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className={styles.container}>
+      <Map />
+      <ClientsResults />
+      <ContactForm
+      />
     </div>
   );
 }
