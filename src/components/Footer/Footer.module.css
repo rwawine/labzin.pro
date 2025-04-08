@@ -35,7 +35,7 @@
 .contactBlock, .requisites {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 .contactDetails {
@@ -51,9 +51,19 @@
   margin: 0;
 }
 
+.requisites div p span {
+  color: #1a1a1a66;
+}
+
 .requisites p {
     width: 100%;
     font-size: 14px;
+}
+
+.requisites div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .phone {
@@ -73,10 +83,10 @@
 }
 
 .navigation h3 {
-  color: #757575;
+  color: rgb(13, 14, 20);
   font-size: 14px;
   font-weight: 500;
-  margin: 0 0 10px 0;
+  margin: 0 0 16px 0;
 }
 
 .navigation ul {
