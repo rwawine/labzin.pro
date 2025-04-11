@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import Navigation from "@/components/Navigation";
+import '../styles/globals.css';
+import Navigation from "@/components/Navigation/Navigation";
 import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://labzin.pro'),
   title: {
-    template: "%s | Labzin.pro",
-    default: "Labzin.pro - Инжиниринг и проектирование",
+    template: "%s — Labzin.pro",
+    default: "Labzin.pro — Инжиниринг и проектирование",
   },
-  description: "Labzin.pro - компания, специализирующаяся на инжиниринге и проектировании.",
-  keywords: "разработка, программное обеспечение, веб-разработка, мобильная разработка, UI/UX дизайн, IT компания",
+  description: "Labzin.pro — компания, специализирующаяся на инжиниринге и проектировании.",
+  keywords: "инжиниринг, проектирование, инженерные системы, слаботочные сети, пожарная безопасность, безопасность, видеонаблюдение, охранные системы",
   authors: [{ name: "Labzin.pro" }],
   creator: "Labzin.pro",
   publisher: "Labzin.pro",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     url: "https://labzin.pro",
     siteName: "Labzin.pro",
-    title: "Labzin.pro - Разработка программного обеспечения",
-    description: "Labzin.pro - компания, специализирующаяся на разработке программного обеспечения, веб-приложений и мобильных решений.",
+    title: "Labzin.pro — Инжиниринг и проектирование",
+    description: "Labzin.pro — компания, специализирующаяся на инжиниринге и проектировании.",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Labzin.pro - Разработка программного обеспечения",
-    description: "Labzin.pro - компания, специализирующаяся на разработке программного обеспечения, веб-приложений и мобильных решений.",
+    title: "Labzin.pro — Инжиниринг и проектирование",
+    description: "Labzin.pro — компания, специализирующаяся на инжиниринге и проектировании.",
     images: ["/images/og-image.jpg"],
   },
   robots: {

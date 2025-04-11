@@ -1,13 +1,13 @@
 import { FC, useState } from 'react';
 import styles from './Modal.module.css';
-import Input from '../Input';
+import Input from '../Input/Input';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
+export default function Modal({ isOpen, onClose }: ModalProps) {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
 
@@ -25,10 +25,10 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
         <button className={styles.closeButton} onClick={onClose}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        
+
         <div className={styles.content}>
           <div className={styles.header}>
             <h2 className={styles.title}>Обсудить проект</h2>
@@ -39,16 +39,16 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             <Input
               id="name"
               label="Ваше имя"
-              placeholder="Ваше имя"
+              placeholder=""
               value={name}
               onChange={setName}
               required
             />
-            
+
             <Input
               id="phone"
               label="Телефон"
-              placeholder="Телефон"
+              placeholder=""
               type="tel"
               value={phone}
               onChange={setPhone}
@@ -68,6 +68,4 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
       </div>
     </div>
   );
-};
-
-export default Modal; 
+}

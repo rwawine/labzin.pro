@@ -1,0 +1,186 @@
+.container {
+  max-width: 1660px;
+  padding: 0 15px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(20px, 5vw, 80px);
+  width: 100%;
+  font-family: Montserrat, sans-serif;
+  margin-bottom: 120px;
+  position: relative;
+}
+
+.backgroundTitle {
+  font-family: Montserrat;
+  font-weight: 800;
+  font-size: 220px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #E5F3FF;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  max-width: 680px;
+  height: fit-content;
+}
+
+.titleText {
+  font-size: 42px;
+  font-weight: 600;
+  color: #242424;
+  margin: 0;
+  text-align: left;
+
+  font-size: 32px;
+  text-align: left;
+  color: rgb(13, 14, 20);
+  line-height: 1.2;
+}
+
+.descriptionText {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #464853;
+  max-width: 520px;
+}
+
+.downloadButton {
+  background-color: #3A93FE;
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Montserrat, sans-serif;
+  text-decoration: none;
+  line-height: 150%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: unset;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  width: fit-content;
+}
+
+.downloadButton svg path {
+  fill: #fff;
+  transition: fill 0.2s ease;
+}
+
+.downloadButton:hover {
+  background-color: #3579E0;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 820px;
+}
+
+.advantageCard {
+  background-color: #F7F7F8;
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.advantageIcon {
+  width: 64px;
+  height: 64px;
+  background-color: #3579E0;
+  border-radius: 50%;
+  display: flex;
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 32px;
+}
+
+.cardButton {
+  width: 64px;
+  height: 64px;
+  background-color: #3A93FE;
+  border-radius: 50%;
+  display: flex;
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  transition: background-color 0.2s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardButton:hover {
+  background-color: #3579E0;
+}
+
+.cardButtonDiv {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.advantageContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.advantageTitle {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  color: #1A1A1A;
+  margin: 0;
+}
+
+.advantageText {
+  font-size: 16px;
+  max-width: 720px;
+  color: #1A1A1A;
+  margin: 0;
+  line-height: 1.5;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .title {
+    gap: 32px;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .downloadButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

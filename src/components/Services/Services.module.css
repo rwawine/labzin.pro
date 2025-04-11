@@ -1,0 +1,235 @@
+.services {
+    margin-bottom: 120px;
+}
+
+.container {
+    max-width: 1660px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    text-align: left;
+    margin-bottom: 64px;
+}
+
+.title {
+    font-weight: 600;
+    margin-bottom: 32px;
+    text-align: left;
+    font-size: 32px;
+    text-align: left;
+    color: #0d0e14;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    max-width: 609px;
+}
+
+.cardsContainer {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    cursor: pointer;
+    width: 400px;
+    height: 400px;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background-color: #F7F7F8;
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(135deg, #092D78 0%, #0C48C6 100%);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.card:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400' fill='none'%3E%3Cg clip-path='url(%23clip0_269_8276)'%3E%3Cpath d='M835 -152H-435V400H835V-152Z' fill='url(%23paint0_linear_269_8276)'/%3E%3Cpath d='M117.174 216.46H835' stroke='url(%23paint1_linear_269_8276)'/%3E%3Cpath d='M208.743 78V315.36' stroke='url(%23paint2_linear_269_8276)'/%3E%3Cpath d='M485.29 -60H-112.898V78H485.29V-60Z' fill='url(%23paint3_linear_269_8276)'/%3E%3Cpath d='M347.246 216L834.08 216V78L347.246 78V216Z' fill='url(%23paint4_linear_269_8276)'/%3E%3Cg filter='url(%23filter0_d_269_8276)'%3E%3Cpath d='M209.204 216L347.247 216V78L209.204 78L209.204 216Z' fill='%230C48C6'/%3E%3C/g%3E%3Cpath d='M208.743 197.6V235.32' stroke='white' stroke-width='3'/%3E%3Cpath d='M189.877 216.46H227.609' stroke='white' stroke-width='3'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d_269_8276' x='189.204' y='68' width='168.043' height='168' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dx='-5' dy='5'/%3E%3CfeGaussianBlur stdDeviation='7.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.141176 0 0 0 0 0.427451 0 0 0 0 0.988235 0 0 0 0.2 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_269_8276'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_269_8276' result='shape'/%3E%3C/filter%3E%3ClinearGradient id='paint0_linear_269_8276' x1='-435' y1='400' x2='762.62' y2='527.563' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23092D78'/%3E%3Cstop offset='1' stop-color='%230C48C6'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear_269_8276' x1='-nan' y1='-nan' x2='-nan' y2='-nan' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='white' stop-opacity='0'/%3E%3Cstop offset='0.339264' stop-color='%2376A5FF'/%3E%3Cstop offset='1' stop-color='white' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint2_linear_269_8276' x1='-nan' y1='-nan' x2='-nan' y2='-nan' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='white' stop-opacity='0'/%3E%3Cstop offset='0.335253' stop-color='white'/%3E%3Cstop offset='1' stop-color='white' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint3_linear_269_8276' x1='-112.898' y1='9' x2='485.29' y2='9' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2376A2FF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='white' stop-opacity='0.9'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint4_linear_269_8276' x1='834.08' y1='147' x2='347.246' y2='147' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2376A2FF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='white' stop-opacity='0.9'/%3E%3C/linearGradient%3E%3CclipPath id='clip0_269_8276'%3E%3Crect width='400' height='400' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+}
+
+.card:hover {
+    background-color: rgb(247, 247, 248);
+}
+
+.card:last-child {
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card:last-child:hover {
+    color: #3579E0 !important;
+    transition: all 0.3s ease;
+    background-color: #F7F7F8;
+}
+
+.card:last-child:hover svg path {
+    fill: #3579E0 !important;
+    transition: fill 0.3s ease;
+}
+
+.card:last-child .cardContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 100%;
+}
+
+.card:last-child .cardContent .cardDescription {
+    display: none;
+}
+
+.card:last-child .cardContent .cardTitle {
+    margin-bottom: 0;
+}
+
+.cardContent {
+    z-index: 1;
+    margin-top: auto;
+}
+
+.cardTitle {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 16px;
+}
+
+.cardDescription {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1;
+}
+
+.card:hover .iconWrapper svg {
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.iconCircle {
+    background-color: #3579E0;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:nth-child(2) .iconCircle {
+    background-color: #FFFFFF;
+}
+
+.card:nth-child(2) .iconCircle svg path {
+    stroke: #3579E0;
+}
+
+.card:last-child .iconCircle {
+    display: none;
+}
+
+.arrowIcon {
+    position: absolute;
+    right: 35%;
+    top: 50%;
+    transform: translateY(-50%) translateX(50%);
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+        margin-bottom: 60px;
+    }
+
+    .cardsContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        min-height: 320px;
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .cardTitle {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .cardDescription {
+        font-size: 14px;
+    }
+
+    .iconCircle {
+        width: 48px;
+        height: 48px;
+    }
+
+    .header {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+        margin-bottom: 40px;
+    }
+
+    .card {
+        min-height: 280px;
+        padding: 12px;
+    }
+
+    .title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+}

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import styles from './Input.module.css';
 
 interface InputProps {
@@ -12,23 +12,14 @@ interface InputProps {
   error?: string;
 }
 
-const Input: FC<InputProps> = ({
-  id,
-  label,
-  placeholder,
-  type = 'text',
-  value,
-  onChange,
-  required = false,
-  error
-}) => {
+export default function Input({ id, label, placeholder, type = 'text', value, onChange, required = false, error }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
   const hasError = !!error;
 
   return (
     <div className={styles.inputGroup}>
-      <label 
-        htmlFor={id} 
+      <label
+        htmlFor={id}
         className={`${styles.label} ${(isFocused || value) ? styles.labelFocused : ''} ${hasError ? styles.labelError : ''}`}
       >
         {label}
@@ -47,12 +38,10 @@ const Input: FC<InputProps> = ({
         aria-describedby={hasError ? `${id}-error` : undefined}
       />
       {hasError && (
-        <span id={`${id}-error`} className={styles.errorMessage} role="alert"> 
+        <span id={`${id}-error`} className={styles.errorMessage} role="alert">
           {error}
         </span>
       )}
     </div>
   );
-};
-
-export default Input; 
+}

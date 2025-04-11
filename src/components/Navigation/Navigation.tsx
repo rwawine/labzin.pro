@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styles from './Navigation.module.css';
-import Modal from '../Modal';
+import Modal from '../Modal/Modal';
 
-const Navigation = () => {
+export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -132,7 +132,7 @@ const Navigation = () => {
                   Проектирование
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <g id="Frame">
-                      <path id="Vector" d="M5.85355 6.64647L8.4798 9.27266L11.106 6.64647C11.3013 6.45118 11.6179 6.45118 11.8131 6.64647C12.0084 6.84173 12.0084 7.15827 11.8131 7.35353L8.83334 10.3333C8.73954 10.4271 8.6124 10.4798 8.4798 10.4798C8.3472 10.4798 8.22001 10.4271 8.12621 10.3333L5.14645 7.35353C4.95118 7.15827 4.95118 6.84173 5.14645 6.64647C5.34171 6.45118 5.65829 6.45118 5.85355 6.64647Z" fill="#0D0E14" />
+                      <path id="Vector" d="M5.85355 6.64647L8.4798 9.27266L11.106 6.64647C11.3013 6.45118 11.6179 6.45118 11.8131 6.64647C12.0084 6.84173 12.0084 7.15827 11.8131 7.35353L8.83334 10.3333C8.73954 10.4271 8.6124 10.4798 8.4798 10.4798C8.3472 10.4798 8.22001 10.4271 8.12621 10.3333L5.14645 7.35353C4.95118 7.15827 4.95118 6.84173 5.14645 6.64647C5.34171 6.45118 5.65829 6.45118 5.85355 6.64647Z" />
                     </g>
                   </svg>
                 </button>
@@ -181,6 +181,4 @@ const Navigation = () => {
       <Modal isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
-};
-
-export default Navigation; 
+}

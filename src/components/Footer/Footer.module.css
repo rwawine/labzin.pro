@@ -8,7 +8,7 @@
 .footerContent {
   max-width: 1660px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 15px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -32,7 +32,8 @@
   gap: 64px;
 }
 
-.contactBlock, .requisites {
+.contactBlock,
+.requisites {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -44,7 +45,8 @@
   gap: 8px;
 }
 
-.contactBlock h3, .requisites h3 {
+.contactBlock h3,
+.requisites h3 {
   color: #0D0E14;
   font-size: 14px;
   font-weight: 500;
@@ -56,8 +58,8 @@
 }
 
 .requisites p {
-    width: 100%;
-    font-size: 14px;
+  width: 100%;
+  font-size: 14px;
 }
 
 .requisites div {
@@ -72,7 +74,8 @@
   margin: 0;
 }
 
-.social, .email {
+.social,
+.email {
   color: #0D0E14;
   font-size: 14px;
   margin: 0;
@@ -185,4 +188,4 @@
     gap: 10px;
     text-align: center;
   }
-} 
+}

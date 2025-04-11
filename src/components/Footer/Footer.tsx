@@ -3,7 +3,7 @@
 import styles from './Footer.module.css';
 import Link from 'next/link';
 
-const Footer = () => {
+export default function Footer() {
     const scrollToTop = () => {
         try {
             if (typeof window !== 'undefined') {
@@ -61,7 +61,7 @@ const Footer = () => {
                                 <p className={styles.phone}>Т: <a href="tel:+79855535350">+7 985 553-53-50</a></p>
                                 <p className={styles.social}>Whatsapp</p>
                                 <p className={styles.social}>Telegram</p>
-                            <p className={styles.email}>М: <a href="mailto:labzin@inbox.ru">labzin@inbox.ru</a></p>
+                                <p className={styles.email}>М: <a href="mailto:labzin@inbox.ru">labzin@inbox.ru</a></p>
                             </div>
                         </div>
                         <div className={styles.requisites}>
@@ -99,6 +99,4 @@ const Footer = () => {
             </div>
         </footer>
     );
-};
-
-export default Footer; 
+}

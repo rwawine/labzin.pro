@@ -1,0 +1,138 @@
+.whyChooseUs {
+    width: 100%;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    margin-bottom: 120px;
+}
+
+.container {
+    max-width: 1660px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.leftColumn {
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.title {
+    font-size: 48px;
+    line-height: 1.2;
+    color: #0D0E14;
+    margin: 0;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #242424;
+    margin: 0;
+}
+
+.button {
+    width: 366px;
+    height: 48px;
+    background-color: #3A93FE;
+    border-radius: 12px;
+    border: none;
+    color: #FAFAFA;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2980E9;
+}
+
+.rightColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.card {
+    flex: 0;
+    background-color: #F7F7F8;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    backdrop-filter: blur(10px);
+}
+
+.icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cardTitle {
+    font-size: 18px;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.cardText {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .leftColumn {
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .cardsContainer {
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+}

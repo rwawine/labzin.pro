@@ -1,12 +1,14 @@
 .nav {
   padding: 1rem 0;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
 }
 
 .container {
   max-width: 1660px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,7 +38,7 @@
 
 .link {
   padding: 12px;
-  color: #666;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
   font-size: 14px;
@@ -46,7 +48,7 @@
 }
 
 .linkButton {
-  color: #666;
+  color: #fff;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -63,12 +65,18 @@
 }
 
 .linkButton:hover {
+  color: #1e1e1e;
   background-color: #F5F6FB;
   border-radius: 12px;
 }
 
 .linkButton:hover svg path {
   transition: fill 0.2s ease;
+  fill: #1e1e1e;
+}
+
+.linkButton svg path {
+  fill: #fff;
 }
 
 .linkButton svg path {
@@ -76,6 +84,7 @@
 }
 
 .link:hover {
+  color: #1e1e1e;
   background-color: #F5F6FB;
   border-radius: 12px;
 }
