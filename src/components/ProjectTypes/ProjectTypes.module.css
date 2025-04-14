@@ -1,3 +1,7 @@
+.projectTypes {
+  margin-bottom: 120px;
+}
+
 .container {
   max-width: 1660px;
   padding: 0 15px;
@@ -8,7 +12,6 @@
   gap: clamp(20px, 5vw, 80px);
   width: 100%;
   font-family: Montserrat, sans-serif;
-  margin-bottom: 120px;
   position: relative;
 }
 
@@ -172,7 +175,6 @@
 
   .container {
     flex-direction: column;
-    padding: 0;
   }
 
   .card {

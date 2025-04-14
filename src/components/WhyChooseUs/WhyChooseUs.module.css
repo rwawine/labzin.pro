@@ -28,10 +28,11 @@
 }
 
 .title {
-    font-size: 48px;
+    font-weight: 600;
+    font-size: 32px;
+    text-align: left;
+    color: #0d0e14;
     line-height: 1.2;
-    color: #0D0E14;
-    margin: 0;
 }
 
 .description {
@@ -96,43 +97,149 @@
 .content {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 
 .cardTitle {
     font-size: 18px;
-    line-height: 1.2;
-    color: #1A1A1A;
-    margin: 0;
+    font-weight: 600;
+    line-height: 1.5;
+    color: rgba(13, 14, 20, 1);
 }
 
 .cardText {
+    font-weight: 400;
     font-size: 16px;
-    line-height: 1.5;
-    color: #1A1A1A;
-    margin: 0;
+    line-height: 140%;
 }
 
+/* Планшеты */
 @media (max-width: 1200px) {
+    
     .container {
         flex-direction: column;
+        gap: 40px;
     }
 
     .leftColumn {
         width: 100%;
+        gap: 40px;
     }
 
     .button {
         width: 100%;
     }
-}
-
-@media (max-width: 768px) {
-    .cardsContainer {
+    
+    .rightColumn {
+        gap: 8px;
         flex-direction: column;
     }
+    
+    .cardsContainer {
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .card {
+        padding: 24px;
+        gap: 24px;
+    }
+}
 
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    
+    .container {
+        gap: 32px;
+        padding: 0 10px;
+    }
+    
+    .leftColumn {
+        gap: 24px;
+    }
+    
+    .textBlock {
+        gap: 24px;
+    }
+    
     .title {
-        font-size: 36px;
+        font-size: 28px;
+    }
+    
+    .description {
+        font-size: 16px;
+    }
+    
+    .button {
+        height: 44px;
+        font-size: 14px;
+    }
+    
+    .card {
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .icon {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .cardTitle {
+        font-size: 16px;
+    }
+    
+    .cardText {
+        font-size: 14px;
+    }
+}
+
+/* Маленькие мобильные устройства */
+@media (max-width: 480px) {
+    
+    .container {
+        gap: 24px;
+        padding: 0 8px;
+    }
+    
+    .leftColumn {
+        gap: 20px;
+    }
+    
+    .textBlock {
+        gap: 20px;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .description {
+        font-size: 14px;
+    }
+    
+    .button {
+        height: 40px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+    
+    .card {
+        padding: 16px;
+        gap: 16px;
+        border-radius: 12px;
+    }
+    
+    .icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .cardTitle {
+        font-size: 15px;
+    }
+    
+    .cardText {
+        font-size: 13px;
     }
 }

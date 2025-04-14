@@ -4,16 +4,21 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styles from './Navigation.module.css';
 import Modal from '../Modal/Modal';
+import designMenuData from './data.json';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDesignMenuOpen, setIsDesignMenuOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [menuTimeout, setMenuTimeout] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 1440);
-      if (window.innerWidth >= 1440) {
+      setIsMobile(window.innerWidth < 1550);
+      if (window.innerWidth >= 1550) {
         setIsMenuOpen(false);
       }
     };
@@ -46,10 +51,14 @@ export default function Navigation() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    if (isMenuOpen) {
+      setIsDesignMenuOpen(false);
+    }
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    setIsDesignMenuOpen(false);
   };
 
   const openModal = () => {
@@ -60,6 +69,27 @@ export default function Navigation() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const toggleDesignMenu = () => {
+    setIsDesignMenuOpen(!isDesignMenuOpen);
+    if (!isDesignMenuOpen && !selectedCategory) {
+      setSelectedCategory(designMenuData.designMenu.categories[0].id);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    // Удалена логика открытия по наведению
+  };
+
+  const handleMouseLeave = () => {
+    // Удалена логика закрытия по наведению
+  };
+
+  const handleCategoryClick = (categoryId: string) => {
+    setSelectedCategory(selectedCategory === categoryId ? null : categoryId);
+  };
+
+  const selectedCategoryData = designMenuData.designMenu.categories.find(cat => cat.id === selectedCategory);
 
   return (
     <>
@@ -113,10 +143,13 @@ export default function Navigation() {
           </button>
 
           {/* Background overlay */}
-          {isMenuOpen && (
+          {(isMenuOpen || isDesignMenuOpen) && (
             <div
-              className={styles.overlay}
-              onClick={closeMenu}
+              className={`${styles.overlay} ${(isMenuOpen || isDesignMenuOpen) ? styles.visible : ''}`}
+              onClick={() => {
+                closeMenu();
+                setIsDesignMenuOpen(false);
+              }}
               aria-hidden="true"
             />
           )}
@@ -124,18 +157,139 @@ export default function Navigation() {
           <ul className={`${styles.links} ${isMenuOpen ? styles.open : ''}`}>
             <li
               className={styles.designMenuItem}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              <div className={styles.designMenuContainer}>
+              <div
+                className={styles.designMenuContainer}
+                role="menu"
+              >
                 <button
-                  className={styles.linkButton}
+                  className={`${styles.linkButton} ${isDesignMenuOpen ? styles.active : ''}`}
+                  onClick={toggleDesignMenu}
+                  aria-expanded={isDesignMenuOpen}
+                  aria-haspopup="true"
                 >
                   Проектирование
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <g id="Frame">
-                      <path id="Vector" d="M5.85355 6.64647L8.4798 9.27266L11.106 6.64647C11.3013 6.45118 11.6179 6.45118 11.8131 6.64647C12.0084 6.84173 12.0084 7.15827 11.8131 7.35353L8.83334 10.3333C8.73954 10.4271 8.6124 10.4798 8.4798 10.4798C8.3472 10.4798 8.22001 10.4271 8.12621 10.3333L5.14645 7.35353C4.95118 7.15827 4.95118 6.84173 5.14645 6.64647C5.34171 6.45118 5.65829 6.45118 5.85355 6.64647Z" />
-                    </g>
+                    <path d="M5.85355 6.64647L8.4798 9.27266L11.106 6.64647C11.3013 6.45118 11.6179 6.45118 11.8131 6.64647C12.0084 6.84173 12.0084 7.15827 11.8131 7.35353L8.83334 10.3333C8.73954 10.4271 8.6124 10.4798 8.4798 10.4798C8.3472 10.4798 8.22001 10.4271 8.12621 10.3333L5.14645 7.35353C4.95118 7.15827 4.95118 6.84173 5.14645 6.64647C5.34171 6.45118 5.65829 6.45118 5.85355 6.64647Z" fill="currentColor" />
                   </svg>
                 </button>
+                <AnimatePresence>
+                  {isDesignMenuOpen && (
+                    !isMobile ? (
+                      <motion.div 
+                        className={`${styles.dropdownMenu} ${isDesignMenuOpen ? styles.visible : ''}`}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3 }}
+                        role="menu"
+                      >
+                        <div className={styles.dropdownColumn}>
+                          {designMenuData.designMenu.categories.map(category => (
+                            <div 
+                              key={category.id}
+                              className={`${styles.dropdownCategory} ${selectedCategory === category.id ? styles.active : ''}`}
+                              onClick={() => isMobile && handleCategoryClick(category.id)}
+                              onMouseEnter={() => !isMobile && setSelectedCategory(category.id)}
+                              role="menuitem"
+                              tabIndex={0}
+                              aria-expanded={selectedCategory === category.id}
+                              aria-haspopup="true"
+                            >
+                              <div className={styles.dropdownCategoryContent}>
+                                <h3>{category.title}</h3>
+                                <p>{category.description}</p>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M5.85355 6.64647L8.4798 9.27266L11.106 6.64647C11.3013 6.45118 11.6179 6.45118 11.8131 6.64647C12.0084 6.84173 12.0084 7.15827 11.8131 7.35353L8.83334 10.3333C8.73954 10.4271 8.6124 10.4798 8.4798 10.4798C8.3472 10.4798 8.22001 10.4271 8.12621 10.3333L5.14645 7.35353C4.95118 7.15827 4.95118 6.84173 5.14645 6.64647C5.34171 6.45118 5.65829 6.45118 5.85355 6.64647Z" fill="currentColor" />
+                              </svg>
+                            </div>
+                          ))}
+                        </div>
+                        {selectedCategoryData && (
+                          <div className={`${styles.dropdownColumn} ${styles.submenu} ${!isMobile || (isMobile && selectedCategory) ? styles.visible : ''}`}>
+                            <div className={styles.dropdownCategoryDetails}>
+                              {selectedCategoryData.pages.length > 0 ? (
+                                <ul>
+                                  {selectedCategoryData.pages.map(page => (
+                                    <li key={page.id}>
+                                      <Link 
+                                        href={page.url} 
+                                        onClick={() => {
+                                          closeMenu();
+                                          setIsDesignMenuOpen(false);
+                                        }}
+                                      >
+                                        {page.title}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : (
+                                <p>В данном разделе пока нет страниц</p>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    ) : (
+                      <div 
+                        className={`${styles.dropdownMenu} ${isDesignMenuOpen ? styles.visible : ''}`}
+                        role="menu"
+                      >
+                        <div className={styles.dropdownColumn}>
+                          {designMenuData.designMenu.categories.map(category => (
+                            <div 
+                              key={category.id}
+                              className={`${styles.dropdownCategory} ${selectedCategory === category.id ? styles.active : ''}`}
+                              onClick={() => isMobile && handleCategoryClick(category.id)}
+                              onMouseEnter={() => !isMobile && setSelectedCategory(category.id)}
+                              role="menuitem"
+                              tabIndex={0}
+                              aria-expanded={selectedCategory === category.id}
+                              aria-haspopup="true"
+                            >
+                              <div className={styles.dropdownCategoryContent}>
+                                <h3>{category.title}</h3>
+                                <p>{category.description}</p>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M5.85355 6.64647L8.4798 9.27266L11.106 6.64647C11.3013 6.45118 11.6179 6.45118 11.8131 6.64647C12.0084 6.84173 12.0084 7.15827 11.8131 7.35353L8.83334 10.3333C8.73954 10.4271 8.6124 10.4798 8.4798 10.4798C8.3472 10.4798 8.22001 10.4271 8.12621 10.3333L5.14645 7.35353C4.95118 7.15827 4.95118 6.84173 5.14645 6.64647C5.34171 6.45118 5.65829 6.45118 5.85355 6.64647Z" fill="currentColor" />
+                              </svg>
+                            </div>
+                          ))}
+                        </div>
+                        {selectedCategoryData && (
+                          <div className={`${styles.dropdownColumn} ${styles.submenu} ${!isMobile || (isMobile && selectedCategory) ? styles.visible : ''}`}>
+                            <div className={styles.dropdownCategoryDetails}>
+                              {selectedCategoryData.pages.length > 0 ? (
+                                <ul>
+                                  {selectedCategoryData.pages.map(page => (
+                                    <li key={page.id}>
+                                      <Link 
+                                        href={page.url} 
+                                        onClick={() => {
+                                          closeMenu();
+                                          setIsDesignMenuOpen(false);
+                                        }}
+                                      >
+                                        {page.title}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : (
+                                <p>В данном разделе пока нет страниц</p>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )
+                  )}
+                </AnimatePresence>
               </div>
             </li>
             <li>

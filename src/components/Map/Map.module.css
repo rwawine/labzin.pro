@@ -1,3 +1,7 @@
+.map {
+    margin-bottom: 120px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -130,7 +134,6 @@
 
 @media (max-width: 480px) {
     .container {
-        padding: 0;
         gap: 40px;
     }
 

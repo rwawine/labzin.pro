@@ -11,6 +11,7 @@ import ProjectTypes from '../components/ProjectTypes/ProjectTypes';
 import Services from '../components/Services/Services';
 import WhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import WhoWe from '../components/WhoWe/WhoWe';
+import Reviews from '../components/Reviews/Reviews';
 
 export const metadata: Metadata = {
   title: 'Главная',
@@ -58,21 +59,22 @@ export default function Home() {
         </div>
         <img className={styles.mainBackgroundImage} src="/assets/svg/mainBackground.svg" alt="mainBackground" />
       </div>
-      
+
       <div className={styles.blueprintImageContainer}>
-        <img 
-          src="/assets/image/afterMainHeroImage.png" 
-          alt="Инженерный чертеж" 
-          className={styles.blueprintImage} 
+        <img
+          src="/assets/image/afterMainHeroImage.png"
+          alt="Инженерный чертеж"
+          className={styles.blueprintImage}
         />
       </div>
-      
+
       <WhoWe />
       <WhyChooseUs />
       <Services />
       <ProjectTypes />
       <Top5Reasons />
       <OurAdvantages />
+      <Reviews />
       <Map />
       <ClientsResults />
       <ContactForm />

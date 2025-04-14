@@ -21,41 +21,43 @@ const ListItem: React.FC<ListItemProps> = ({ text }) => {
 
 export default function ClientResults() {
   const listItems = [
-    "Оптимизированные решения: мы снижаем затраты на оборудование и монтаж.",
-    "Отсутствие переделок: мы проводим детальные расчёты и создаем продуманную документацию.",
-    "Соблюдение сроков: мы придерживаемся четкого графика без задержек.",
-    "Соответствие нормам: вся документация проходит проверку экспертами."
+    "Оптимизированные решения: мы снижаем затраты на оборудование и монтаж",
+    "Отсутствие переделок: мы проводим детальные расчёты и создаем продуманную документацию",
+    "Соблюдение сроков: мы придерживаемся четкого графика без задержек",
+    "Соответствие нормам: вся документация проходит проверку экспертами"
   ];
 
   return (
-    <div className={styles.container}>
-      {/* Левая колонка */}
-      <div className={styles.leftColumn}>
-        <div className={styles.textSection}>
-          <h2 className={styles.title}>Что получили компании, обратившиеся к нам?</h2>
-          <p className={styles.subtitle}>Наши клиенты получают не просто проект, а уверенность в достижении результата.</p>
+    <section className={styles.clientResults}>
+      <div className={styles.container}>
+        {/* Левая колонка */}
+        <div className={styles.leftColumn}>
+          <div className={styles.textSection}>
+            <h2 className={styles.title}>Что получили компании, обратившиеся к нам?</h2>
+            <p className={styles.subtitle}>Наши клиенты получают не просто проект, а уверенность в достижении результата</p>
+          </div>
+
+          <div className={styles.listSection}>
+            {listItems.map((item, index) => (
+              <ListItem key={index} text={item} />
+            ))}
+          </div>
+
+          <button className={styles.button}>
+            Обсудить проект
+            <span className={styles.buttonIcon}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.0689 17.5858L13.6547 14L10.0689 10.4143C10.019 10.3644 9.97633 10.3118 9.93972 10.2563C9.68344 9.86819 9.72615 9.34071 10.0689 8.999C10.4594 8.60847 11.0926 8.60847 11.4831 8.999L15.776 13.2919C15.9635 13.4794 16.0689 13.7338 16.0689 14C16.0689 14.2663 15.9635 14.5206 15.776 14.7082L11.4831 19.001C11.0926 19.3916 10.4594 19.3916 10.0689 19.001C9.67839 18.6105 9.67839 17.9774 10.0689 17.5858Z" fill="white" />
+              </svg>
+            </span>
+          </button>
         </div>
 
-        <div className={styles.listSection}>
-          {listItems.map((item, index) => (
-            <ListItem key={index} text={item} />
-          ))}
+        {/* Правая колонка */}
+        <div className={styles.rightColumn}>
         </div>
-
-        <button className={styles.button}>
-          Давайте обсудим детали вашего проекта
-          <span className={styles.buttonIcon}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10.0689 17.5858L13.6547 14L10.0689 10.4143C10.019 10.3644 9.97633 10.3118 9.93972 10.2563C9.68344 9.86819 9.72615 9.34071 10.0689 8.999C10.4594 8.60847 11.0926 8.60847 11.4831 8.999L15.776 13.2919C15.9635 13.4794 16.0689 13.7338 16.0689 14C16.0689 14.2663 15.9635 14.5206 15.776 14.7082L11.4831 19.001C11.0926 19.3916 10.4594 19.3916 10.0689 19.001C9.67839 18.6105 9.67839 17.9774 10.0689 17.5858Z" fill="white" />
-            </svg>
-          </span>
-        </button>
       </div>
-
-      {/* Правая колонка */}
-      <div className={styles.rightColumn}>
-      </div>
-    </div>
+    </section>
   );
 }
 

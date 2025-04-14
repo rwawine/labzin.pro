@@ -1,0 +1,227 @@
+.reviewsSection {
+    margin-bottom: 120px;
+}
+
+.container {
+    max-width: 1660px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+.titleBlock {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.title {
+    font-size: 32px;
+    text-align: left;
+    font-weight: 600;
+    color: #0d0e14;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #0d0e14;
+    margin: 0;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    align-items: center;
+    gap: 16px;
+}
+
+.slidePoints {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.progressBar {
+    width: 100px;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background-color: #3579E0;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.pagination {
+    display: flex;
+    gap: 8px;
+}
+
+.slidePoint {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slidePoint:hover {
+    background-color: #c0c0c0;
+}
+
+.slidePoint.active {
+    background-color: #3579E0;
+}
+
+.navigationButtons {
+    display: flex;
+    gap: 8px;
+}
+
+.navButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.navButton:hover:not(.disabled) {
+    background-color: #3579E0;
+    color: #fff;
+    border-color: #3579E0;
+}
+
+.navButton:hover svg path {
+    fill: #fff;
+}
+
+.navButton.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.sliderContainer {
+    position: relative;
+}
+
+.slide {
+    gap: 36px;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 260px;
+    background-color: #F7F7F8;
+    border-radius: 12px;
+    padding: 32px;
+    position: relative;
+}
+
+.reviewContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.reviewText {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+
+    color: rgba(13, 14, 20, 1);
+}
+
+.reviewAuthor {
+    display: flex;
+    flex-direction: column;
+}
+
+.authorName {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: 0%;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+    color: rgba(13, 14, 20, 1);
+}
+
+.companyName {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+    color: rgba(92, 92, 92, 1);
+}
+
+.quoteIcon {
+    right: 32px;
+    bottom: 32px;
+    font-size: 160px;
+    color: #3579E0;
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .controls {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .slide {
+        height: auto;
+        padding: 24px;
+    }
+
+    .reviewText {
+        font-size: 16px;
+    }
+}

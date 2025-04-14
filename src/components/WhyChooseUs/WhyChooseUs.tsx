@@ -5,7 +5,7 @@ import styles from './WhyChooseUs.module.css'
 
 export default function WhyChooseUs() {
   return (
-    <div className={styles.whyChooseUs}>
+    <section className={styles.whyChooseUs}>
       <div className={styles.container}>
         <div className={styles.leftColumn}>
           <div className={styles.textBlock}>
@@ -15,7 +15,7 @@ export default function WhyChooseUs() {
             </p>
           </div>
           <button className={styles.button}>
-            <span>Обсудить проект</span>
+            <span>Давайте обсудим детали проекта</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -25,9 +25,18 @@ export default function WhyChooseUs() {
           <div className={styles.cardsContainer}>
             <div className={styles.card}>
               <div className={styles.icon}>
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.291 18.826L48.03 45.401" stroke="#0C48C6" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M33.235 36.814L51.44 54.999" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                  <g clipPath="url(#clip0_110_11092)">
+                    <foreignObject x="-10" y="-10" width="84" height="84"><div></div></foreignObject><path data-figma-bg-blur-radius="10" d="M32 0.5C49.397 0.5 63.5 14.603 63.5 32C63.5 49.397 49.397 63.5 32 63.5C14.603 63.5 0.5 49.397 0.5 32C0.5 14.603 14.603 0.5 32 0.5Z" stroke="#31323E" />
+                    <path d="M42.6934 18.8262H20.6274C17.6802 18.8262 15.291 21.2153 15.291 24.1625V40.065C15.291 43.0122 17.6802 45.4014 20.6274 45.4014H42.6934C45.6406 45.4014 48.0298 43.0122 48.0298 40.065V24.1625C48.0298 21.2153 45.6406 18.8262 42.6934 18.8262Z" fill="#0C48C6" />
+                    <path d="M33.3003 38.0877C33.0063 37.331 33.7512 36.5856 34.5081 36.8788L50.8442 43.2078C51.6143 43.5062 51.6464 44.5843 50.8951 44.9278L46.1529 47.0969C44.9862 47.6306 44.0508 48.5667 43.5181 49.7339L41.3607 54.4601C41.0177 55.2115 39.9398 55.1804 39.6407 54.4105L33.3003 38.0877Z" fill="white" />
+                  </g>
+                  <defs>
+                    <clipPath id="bgblur_1_110_11092_clip_path" transform="translate(10 10)"><path d="M32 0.5C49.397 0.5 63.5 14.603 63.5 32C63.5 49.397 49.397 63.5 32 63.5C14.603 63.5 0.5 49.397 0.5 32C0.5 14.603 14.603 0.5 32 0.5Z" />
+                    </clipPath><clipPath id="clip0_110_11092">
+                      <rect width="64" height="64" fill="white" />
+                    </clipPath>
+                  </defs>
                 </svg>
               </div>
               <div className={styles.content}>
@@ -39,10 +48,18 @@ export default function WhyChooseUs() {
             </div>
             <div className={styles.card}>
               <div className={styles.icon}>
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.371 16.245L48.03 29.079" stroke="#0C48C6" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M15.371 29.08L35.81 47.224" stroke="#0C48C6" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M35.814 29.08L48.035 47.224" stroke="#0C48C6" strokeWidth="2" strokeLinecap="round" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                  <g clipPath="url(#clip0_110_11092)">
+                    <foreignObject x="-10" y="-10" width="84" height="84"><div></div></foreignObject><path data-figma-bg-blur-radius="10" d="M32 0.5C49.397 0.5 63.5 14.603 63.5 32C63.5 49.397 49.397 63.5 32 63.5C14.603 63.5 0.5 49.397 0.5 32C0.5 14.603 14.603 0.5 32 0.5Z" stroke="#31323E" />
+                    <path d="M42.6934 18.8262H20.6274C17.6802 18.8262 15.291 21.2153 15.291 24.1625V40.065C15.291 43.0122 17.6802 45.4014 20.6274 45.4014H42.6934C45.6406 45.4014 48.0298 43.0122 48.0298 40.065V24.1625C48.0298 21.2153 45.6406 18.8262 42.6934 18.8262Z" fill="#0C48C6" />
+                    <path d="M33.3003 38.0877C33.0063 37.331 33.7512 36.5856 34.5081 36.8788L50.8442 43.2078C51.6143 43.5062 51.6464 44.5843 50.8951 44.9278L46.1529 47.0969C44.9862 47.6306 44.0508 48.5667 43.5181 49.7339L41.3607 54.4601C41.0177 55.2115 39.9398 55.1804 39.6407 54.4105L33.3003 38.0877Z" fill="white" />
+                  </g>
+                  <defs>
+                    <clipPath id="bgblur_1_110_11092_clip_path" transform="translate(10 10)"><path d="M32 0.5C49.397 0.5 63.5 14.603 63.5 32C63.5 49.397 49.397 63.5 32 63.5C14.603 63.5 0.5 49.397 0.5 32C0.5 14.603 14.603 0.5 32 0.5Z" />
+                    </clipPath><clipPath id="clip0_110_11092">
+                      <rect width="64" height="64" fill="white" />
+                    </clipPath>
+                  </defs>
                 </svg>
               </div>
               <div className={styles.content}>
@@ -56,10 +73,18 @@ export default function WhyChooseUs() {
           <div className={styles.cardsContainer}>
             <div className={styles.card}>
               <div className={styles.icon}>
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M27.389 12.321L46.666 31.599" stroke="#0C48C6" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M15.68 23.151L34.902 42.54" stroke="#0C48C6" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M25.143 33.268L44.377 50.567" stroke="#0C48C6" strokeWidth="2" strokeLinecap="round" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                  <g clipPath="url(#clip0_110_11092)">
+                    <foreignObject x="-10" y="-10" width="84" height="84"><div></div></foreignObject><path data-figma-bg-blur-radius="10" d="M32 0.5C49.397 0.5 63.5 14.603 63.5 32C63.5 49.397 49.397 63.5 32 63.5C14.603 63.5 0.5 49.397 0.5 32C0.5 14.603 14.603 0.5 32 0.5Z" stroke="#31323E" />
+                    <path d="M42.6934 18.8262H20.6274C17.6802 18.8262 15.291 21.2153 15.291 24.1625V40.065C15.291 43.0122 17.6802 45.4014 20.6274 45.4014H42.6934C45.6406 45.4014 48.0298 43.0122 48.0298 40.065V24.1625C48.0298 21.2153 45.6406 18.8262 42.6934 18.8262Z" fill="#0C48C6" />
+                    <path d="M33.3003 38.0877C33.0063 37.331 33.7512 36.5856 34.5081 36.8788L50.8442 43.2078C51.6143 43.5062 51.6464 44.5843 50.8951 44.9278L46.1529 47.0969C44.9862 47.6306 44.0508 48.5667 43.5181 49.7339L41.3607 54.4601C41.0177 55.2115 39.9398 55.1804 39.6407 54.4105L33.3003 38.0877Z" fill="white" />
+                  </g>
+                  <defs>
+                    <clipPath id="bgblur_1_110_11092_clip_path" transform="translate(10 10)"><path d="M32 0.5C49.397 0.5 63.5 14.603 63.5 32C63.5 49.397 49.397 63.5 32 63.5C14.603 63.5 0.5 49.397 0.5 32C0.5 14.603 14.603 0.5 32 0.5Z" />
+                    </clipPath><clipPath id="clip0_110_11092">
+                      <rect width="64" height="64" fill="white" />
+                    </clipPath>
+                  </defs>
                 </svg>
               </div>
               <div className={styles.content}>
@@ -71,10 +96,18 @@ export default function WhyChooseUs() {
             </div>
             <div className={styles.card}>
               <div className={styles.icon}>
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M27.389 12.321L46.666 31.599" stroke="#0C48C6" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M15.68 23.151L34.902 42.54" stroke="#0C48C6" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M25.143 33.268L44.377 50.567" stroke="#0C48C6" strokeWidth="2" strokeLinecap="round" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                  <g clipPath="url(#clip0_110_11092)">
+                    <foreignObject x="-10" y="-10" width="84" height="84"><div></div></foreignObject><path data-figma-bg-blur-radius="10" d="M32 0.5C49.397 0.5 63.5 14.603 63.5 32C63.5 49.397 49.397 63.5 32 63.5C14.603 63.5 0.5 49.397 0.5 32C0.5 14.603 14.603 0.5 32 0.5Z" stroke="#31323E" />
+                    <path d="M42.6934 18.8262H20.6274C17.6802 18.8262 15.291 21.2153 15.291 24.1625V40.065C15.291 43.0122 17.6802 45.4014 20.6274 45.4014H42.6934C45.6406 45.4014 48.0298 43.0122 48.0298 40.065V24.1625C48.0298 21.2153 45.6406 18.8262 42.6934 18.8262Z" fill="#0C48C6" />
+                    <path d="M33.3003 38.0877C33.0063 37.331 33.7512 36.5856 34.5081 36.8788L50.8442 43.2078C51.6143 43.5062 51.6464 44.5843 50.8951 44.9278L46.1529 47.0969C44.9862 47.6306 44.0508 48.5667 43.5181 49.7339L41.3607 54.4601C41.0177 55.2115 39.9398 55.1804 39.6407 54.4105L33.3003 38.0877Z" fill="white" />
+                  </g>
+                  <defs>
+                    <clipPath id="bgblur_1_110_11092_clip_path" transform="translate(10 10)"><path d="M32 0.5C49.397 0.5 63.5 14.603 63.5 32C63.5 49.397 49.397 63.5 32 63.5C14.603 63.5 0.5 49.397 0.5 32C0.5 14.603 14.603 0.5 32 0.5Z" />
+                    </clipPath><clipPath id="clip0_110_11092">
+                      <rect width="64" height="64" fill="white" />
+                    </clipPath>
+                  </defs>
                 </svg>
               </div>
               <div className={styles.content}>
@@ -87,6 +120,6 @@ export default function WhyChooseUs() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

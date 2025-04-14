@@ -1,162 +1,52 @@
 .nav {
-  padding: 1rem 0;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .container {
   max-width: 1660px;
   margin: 0 auto;
+  margin-top: 20px;
   padding: 0 15px;
+  height: 60px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  position: relative;
+  justify-content: space-between;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
-  z-index: 10;
+  display: inline-block;
+  z-index: 1002;
+  position: relative;
 }
 
 .links {
   display: flex;
-  list-style: none;
+  gap: 32px;
   align-items: center;
   margin: 0;
   padding: 0;
-}
-
-.links li {
-  display: flex;
-  align-items: center;
+  list-style: none;
 }
 
 .link {
-  padding: 12px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-  font-family: Montserrat, sans-serif;
-  transition: color 0.2s ease;
-  white-space: nowrap;
-}
-
-.linkButton {
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: Montserrat, sans-serif;
-  transition: color 0.2s ease;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  padding: 12px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.linkButton:hover {
   color: #1e1e1e;
-  background-color: #F5F6FB;
-  border-radius: 12px;
-}
-
-.linkButton:hover svg path {
-  transition: fill 0.2s ease;
-  fill: #1e1e1e;
-}
-
-.linkButton svg path {
-  fill: #fff;
-}
-
-.linkButton svg path {
-  transition: fill 0.2s ease;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .link:hover {
-  color: #1e1e1e;
-  background-color: #F5F6FB;
-  border-radius: 12px;
-}
-
-.buttonProject {
-  background-color: #8A6FF5;
-  color: #fff;
-  border-radius: 12px;
-  padding: 12px 20px;
-  margin-left: 32px;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: Montserrat, sans-serif;
-  text-decoration: none;
-  line-height: 150%;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  box-shadow: unset;
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.buttonProject svg path {
-  fill: #fff;
-  transition: fill 0.2s ease;
-}
-
-.buttonProject:hover {
-  background-color: #7056D2;
+  color: #FFC533;
 }
 
 .menuButton {
   display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 10;
-  position: relative;
-  width: 24px;
-  height: 24px;
-}
-
-.menuButton svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.menuButton svg:first-child {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.menuButton.active svg:first-child {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.menuButton svg:last-child {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.menuButton.active svg:last-child {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
 }
 
 .overlay {
@@ -164,82 +54,41 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 4;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
   opacity: 0;
-  animation: fadeIn 0.3s ease forwards;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+.overlay.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
-@media (max-width: 1440px) {
-  .buttonProject {
-    margin-left: 0;
-    margin-top: 32px;
-  }
-
-  .menuButton {
-    display: block;
-  }
-
-  .links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 400px;
-    height: 100vh;
-    background-color: #F7F7F8;
-    flex-direction: column;
-    padding: 5rem 2rem 2rem;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
-    z-index: 5;
-    overflow-y: auto;
-  }
-
-  .links.open {
-    right: 0;
-  }
-
-  .link,
-  .linkButton {
-    font-size: 1.2rem;
-    padding: 0.5rem 0;
-    display: block;
-  }
-
-  .designMenuContainer {
-    width: 100%;
-  }
-
-  .linkButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-
-  .linkButton svg {
-    width: 24px;
-    height: 24px;
-  }
+.buttonProject {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #8A6FF5;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s ease;
+  min-width: 200px;
+  white-space: nowrap;
+  border-radius: 12px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
 }
 
-@media (max-width: 768px) {
-  .links {
-    width: 100%;
-    max-width: none;
-  }
+.buttonProject:hover {
+  background-color: #7961da;
 }
 
 .designMenuItem {
@@ -248,4 +97,299 @@
 
 .designMenuContainer {
   position: relative;
+}
+
+.linkButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  transition: color 0.3s ease;
+
+  color: #1e1e1e;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color .3s;
+  white-space: nowrap;
+}
+
+.linkButton:hover,
+.linkButton.active {
+  color: #007AFF;
+}
+
+.linkButton svg {
+  transition: transform 0.3s ease;
+}
+
+.linkButton.active svg {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  gap: 8px;
+  border-radius: 16px;
+  padding: 10px;
+  border: 2px solid #fff;
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  transform: translateX(-50%);
+  width: min(90vw, 800px);
+  background: rgba(237, 240, 247, 1);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  z-index: 1000;
+}
+
+.dropdownMenu.visible {
+  height: auto;
+}
+
+.dropdownColumn {
+  background-color: rgba(237, 240, 247, 1);
+  flex: 1;
+  padding: 12px;
+}
+
+.dropdownColumn:nth-child(2) {
+  margin: 10px 10px 10px 0;
+}
+
+.dropdownColumn ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  margin: 12px;
+}
+
+.dropdownColumn ul li {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+}
+
+.dropdownColumn ul li a {
+  width: 100%;
+  border-radius: 12px;
+  padding: 12px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  background-color: rgba(247, 247, 248, 1);
+  color: rgba(47, 47, 51, 1);
+}
+
+.dropdownCategory {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+}
+
+.dropdownCategoryContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  max-width: 250px;
+
+}
+
+.dropdownCategory:hover,
+.dropdownCategory.active {
+  background-color: #f5f5f5;
+}
+
+.dropdownCategory h3 {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  font-variant-numeric-figure: lining-nums;
+  font-variant-numeric-spacing: proportional-nums;
+  color: rgba(9, 15, 30, 1);
+}
+
+.dropdownCategory p {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  font-variant-numeric-figure: lining-nums;
+  font-variant-numeric-spacing: proportional-nums;
+  color: rgba(30, 30, 30, 1);
+}
+
+.dropdownCategoryDetails {
+  height: 100%;
+}
+
+.dropdownCategoryDetails h3 {
+  margin: 0 0 16px;
+  font-size: 20px;
+  color: #333;
+}
+
+.dropdownCategoryDetails ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dropdownCategoryDetails li {
+  margin-bottom: 12px;
+}
+
+.dropdownCategoryDetails a {
+  color: #007AFF;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.dropdownCategoryDetails a:hover {
+  color: #0056b3;
+}
+
+.submenu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.submenu.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+@media (max-width: 1550px) {
+  .designMenuItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .designMenuContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menuButton {
+    display: block;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .links {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #fff;
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .links.open {
+    transform: translateX(0);
+  }
+
+  .dropdownMenu {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    display: none;
+    height: auto;
+    box-shadow: none;
+    flex-direction: column;
+  }
+
+  .dropdownMenu.visible {
+    transform: none;
+    display: block;
+  }
+
+  .dropdownColumn:first-child {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .dropdownColumn:nth-child(2) {
+    margin: 10px;
+  }
+
+  .submenu {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transform: translateX(0);
+    transition: all 0.3s ease, height 0.3s ease;
+  }
+
+  .submenu.visible {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+    height: 64px;
+  }
+
+  .links {
+    top: 64px;
+    height: calc(100vh - 64px);
+    padding: 16px;
+  }
+
+  .dropdownCategory h3 {
+    font-size: 15px;
+  }
+
+  .dropdownCategory p {
+    font-size: 12px;
+  }
+
+  .dropdownCategoryDetails h3 {
+    font-size: 16px;
+  }
+
+  .dropdownCategoryDetails a {
+    font-size: 14px;
+  }
 }

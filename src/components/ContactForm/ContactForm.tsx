@@ -183,7 +183,7 @@ export default function ContactForm() {
     };
 
     return (
-        <div className={styles.container}>
+        <section className={styles.container}>
             <div className={styles.formSection}>
                 <div className={styles.header}>
                     <h2 className={styles.title}>Форма обратной связи</h2>
@@ -340,7 +340,7 @@ export default function ContactForm() {
                     </svg>
                 </button>
             </form>
-        </div>
+        </section>
     );
 }
 

@@ -1,0 +1,163 @@
+{
+    "designMenu": {
+        "title": "Проектирование",
+        "categories": [
+            {
+                "id": "low-voltage-networks",
+                "title": "Слаботочные сети",
+                "description": "Проектирование и внедрение слаботочных систем",
+                "pages": [
+                    {
+                        "id": "fire-alarm",
+                        "title": "Система пожарной сигнализации",
+                        "url": "/design/fire-alarm"
+                    },
+                    {
+                        "id": "evacuation-notification",
+                        "title": "Система оповещения и управления эвакуацией",
+                        "url": "/design/evacuation-notification"
+                    },
+                    {
+                        "id": "fire-protection-automation",
+                        "title": "Автоматика противопожарной защиты",
+                        "url": "/design/fire-protection-automation"
+                    },
+                    {
+                        "id": "fire-extinguishing-systems",
+                        "title": "Автоматические установки пожаротушения",
+                        "url": "/design/fire-extinguishing-systems"
+                    },
+                    {
+                        "id": "internal-fire-water-supply",
+                        "title": "Внутренний противопожарный водопровод",
+                        "url": "/design/internal-fire-water-supply"
+                    },
+                    {
+                        "id": "emergency-notification",
+                        "title": "Система оповещения о чрезвычайных ситуациях",
+                        "url": "/design/emergency-notification"
+                    },
+                    {
+                        "id": "evacuation-plans",
+                        "title": "Планы эвакуации",
+                        "url": "/design/evacuation-plans"
+                    },
+                    {
+                        "id": "fire-safety-measures",
+                        "title": "Мероприятия по обеспечению пожарной безопасности",
+                        "url": "/design/fire-safety-measures"
+                    },
+                    {
+                        "id": "room-categorization",
+                        "title": "Категорирование помещений по взрывопожарной и пожарной опасности",
+                        "url": "/design/room-categorization"
+                    },
+                    {
+                        "id": "fireproof-treatment",
+                        "title": "Огнезащитная обработка",
+                        "url": "/design/fireproof-treatment"
+                    },
+                    {
+                        "id": "fire-safety-documents",
+                        "title": "Документы по пожарной безопасности",
+                        "url": "/design/fire-safety-documents"
+                    },
+                    {
+                        "id": "fire-safety-declaration",
+                        "title": "Декларация по пожарной безопасности",
+                        "url": "/design/fire-safety-declaration"
+                    },
+                    {
+                        "id": "fire-risk-calculation",
+                        "title": "Расчёт пожарного риска",
+                        "url": "/design/fire-risk-calculation"
+                    }
+                ]
+            },
+            {
+                "id": "fire-safety-systems",
+                "title": "Системы пожарной безопасности",
+                "description": "Разработка и интеграция систем пожаротушения, сигнализации и оповещения",
+                "pages": [
+                    {
+                        "id": "fire-alarm",
+                        "title": "Система пожарной сигнализации",
+                        "url": "/design/fire-alarm"
+                    },
+                    {
+                        "id": "evacuation-notification",
+                        "title": "Система оповещения и управления эвакуацией",
+                        "url": "/design/evacuation-notification"
+                    },
+                    {
+                        "id": "fire-protection-automation",
+                        "title": "Автоматика противопожарной защиты",
+                        "url": "/design/fire-protection-automation"
+                    },
+                    {
+                        "id": "fire-extinguishing-systems",
+                        "title": "Автоматические установки пожаротушения",
+                        "url": "/design/fire-extinguishing-systems"
+                    },
+                    {
+                        "id": "internal-fire-water-supply",
+                        "title": "Внутренний противопожарный водопровод",
+                        "url": "/design/internal-fire-water-supply"
+                    },
+                    {
+                        "id": "emergency-notification",
+                        "title": "Система оповещения о чрезвычайных ситуациях",
+                        "url": "/design/emergency-notification"
+                    },
+                    {
+                        "id": "evacuation-plans",
+                        "title": "Планы эвакуации",
+                        "url": "/design/evacuation-plans"
+                    },
+                    {
+                        "id": "fire-safety-measures",
+                        "title": "Мероприятия по обеспечению пожарной безопасности",
+                        "url": "/design/fire-safety-measures"
+                    },
+                    {
+                        "id": "room-categorization",
+                        "title": "Категорирование помещений по взрывопожарной и пожарной опасности",
+                        "url": "/design/room-categorization"
+                    },
+                    {
+                        "id": "fireproof-treatment",
+                        "title": "Огнезащитная обработка",
+                        "url": "/design/fireproof-treatment"
+                    },
+                    {
+                        "id": "fire-safety-documents",
+                        "title": "Документы по пожарной безопасности",
+                        "url": "/design/fire-safety-documents"
+                    },
+                    {
+                        "id": "fire-safety-declaration",
+                        "title": "Декларация по пожарной безопасности",
+                        "url": "/design/fire-safety-declaration"
+                    },
+                    {
+                        "id": "fire-risk-calculation",
+                        "title": "Расчёт пожарного риска",
+                        "url": "/design/fire-risk-calculation"
+                    }
+                ]
+            },
+            {
+                "id": "security-systems",
+                "title": "Системы безопасности",
+                "description": "Комплексные решения по видеонаблюдению, контролю доступа и охранным системам",
+                "pages": []
+            },
+            {
+                "id": "design-assignment",
+                "title": "Задание на проектирование",
+                "description": "Комплексные решения по видеонаблюдению, контролю доступа и охранным системам",
+                "pages": []
+            }
+        ]
+    }
+}
