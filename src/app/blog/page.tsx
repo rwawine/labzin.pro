@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import styles from './page.module.css';
+import Navigation from '@/components/Navigation/Navigation';
 
 export const metadata: Metadata = {
-  title: 'Блог | Labzin.pro',
+  title: 'Блог',
   description: 'Актуальные статьи и новости в сфере инжиниринга и проектирования от экспертов Labzin.pro',
   keywords: 'блог, разработка, дизайн, UI/UX, технологии, IT, программирование, веб-разработка, мобильная разработка',
   openGraph: {
@@ -94,6 +95,7 @@ const blogPosts = [
 const BlogPage = () => {
   return (
     <div className={styles.container}>
+      <Navigation theme="light" />
 
     </div>
   );

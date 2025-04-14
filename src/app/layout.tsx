@@ -69,7 +69,6 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
-        <Navigation />
         {children}
         <Footer />
       </body>

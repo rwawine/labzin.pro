@@ -12,6 +12,7 @@ import Services from '../components/Services/Services';
 import WhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import WhoWe from '../components/WhoWe/WhoWe';
 import Reviews from '../components/Reviews/Reviews';
+import Navigation from '../components/Navigation/Navigation';
 
 export const metadata: Metadata = {
   title: 'Главная',
@@ -32,7 +33,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <>
+    <div>
+      <Navigation theme="dark" />
       <div className={styles.mainBackground}>
         <div className={styles.heroContent}>
           <p className={styles.projects}>Выполнено 650 объектов</p>
@@ -78,6 +80,6 @@ export default function Home() {
       <Map />
       <ClientsResults />
       <ContactForm />
-    </>
+    </div>
   );
 }

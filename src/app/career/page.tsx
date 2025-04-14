@@ -1,8 +1,9 @@
 import styles from './page.module.css';
 import { Metadata } from 'next';
+import Navigation from '@/components/Navigation/Navigation';
 
 export const metadata: Metadata = {
-  title: 'Карьера | Labzin.pro',
+  title: 'Карьера',
   description: 'Присоединяйтесь к команде Labzin.pro! Вакансии для талантливых специалистов в сфере инжиниринга и проектирования',
   openGraph: {
     title: 'Карьера в Labzin.pro',
@@ -20,6 +21,8 @@ export const metadata: Metadata = {
 
 export default function Career() {
   return (
-    <div className={styles.container}></div>
+    <div className={styles.container}>
+      <Navigation theme="light" />
+    </div>
   );
 } 

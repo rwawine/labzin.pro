@@ -8,69 +8,84 @@
                 "description": "Проектирование и внедрение слаботочных систем",
                 "pages": [
                     {
-                        "id": "fire-alarm",
-                        "title": "Система пожарной сигнализации",
-                        "url": "/design/fire-alarm"
+                        "id": "parking-automation",
+                        "title": "Автоматизация парковок",
+                        "url": "/design/parking-automation"
                     },
                     {
-                        "id": "evacuation-notification",
-                        "title": "Система оповещения и управления эвакуацией",
-                        "url": "/design/evacuation-notification"
+                        "id": "intercom-systems",
+                        "title": "Домофония",
+                        "url": "/design/intercom-systems"
                     },
                     {
-                        "id": "fire-protection-automation",
-                        "title": "Автоматика противопожарной защиты",
-                        "url": "/design/fire-protection-automation"
+                        "id": "staff-call-system",
+                        "title": "Система вызова персонала",
+                        "url": "/design/staff-call-system"
                     },
                     {
-                        "id": "fire-extinguishing-systems",
-                        "title": "Автоматические установки пожаротушения",
-                        "url": "/design/fire-extinguishing-systems"
+                        "id": "structured-cabling-system",
+                        "title": "Структурированная кабельная система",
+                        "url": "/design/structured-cabling-system"
                     },
                     {
-                        "id": "internal-fire-water-supply",
-                        "title": "Внутренний противопожарный водопровод",
-                        "url": "/design/internal-fire-water-supply"
+                        "id": "local-area-network",
+                        "title": "Локальная вычислительная сеть",
+                        "url": "/design/local-area-network"
                     },
                     {
-                        "id": "emergency-notification",
-                        "title": "Система оповещения о чрезвычайных ситуациях",
-                        "url": "/design/emergency-notification"
+                        "id": "telephony",
+                        "title": "Телефония",
+                        "url": "/design/telephony"
                     },
                     {
-                        "id": "evacuation-plans",
-                        "title": "Планы эвакуации",
-                        "url": "/design/evacuation-plans"
+                        "id": "television",
+                        "title": "Телевидение",
+                        "url": "/design/television"
                     },
                     {
-                        "id": "fire-safety-measures",
-                        "title": "Мероприятия по обеспечению пожарной безопасности",
-                        "url": "/design/fire-safety-measures"
+                        "id": "cellular-signal-amplification",
+                        "title": "Усиление сигнала сотовой связи",
+                        "url": "/design/cellular-signal-amplification"
                     },
                     {
-                        "id": "room-categorization",
-                        "title": "Категорирование помещений по взрывопожарной и пожарной опасности",
-                        "url": "/design/room-categorization"
+                        "id": "radio-broadcasting",
+                        "title": "Радиофикация",
+                        "url": "/design/radio-broadcasting"
                     },
                     {
-                        "id": "fireproof-treatment",
-                        "title": "Огнезащитная обработка",
-                        "url": "/design/fireproof-treatment"
+                        "id": "electric-clock-systems",
+                        "title": "Электрочасофикация",
+                        "url": "/design/electric-clock-systems"
                     },
                     {
-                        "id": "fire-safety-documents",
-                        "title": "Документы по пожарной безопасности",
-                        "url": "/design/fire-safety-documents"
+                        "id": "automation-and-dispatching",
+                        "title": "Автоматизация и диспетчеризация",
+                        "url": "/design/automation-and-dispatching"
                     },
                     {
-                        "id": "fire-safety-declaration",
-                        "title": "Декларация по пожарной безопасности",
-                        "url": "/design/fire-safety-declaration"
+                        "id": "video-walls-multimedia",
+                        "title": "Видеостены и мультимедийные системы",
+                        "url": "/design/video-walls-multimedia"
                     },
                     {
-                        "id": "fire-risk-calculation",
-                        "title": "Расчёт пожарного риска",
-                        "url": "/design/fire-risk-calculation"
+                        "id": "parking-gas-monitoring",
+                        "title": "Система контроля загазованности стоянок",
+                        "url": "/design/parking-gas-monitoring"
+                    },
+                    {
+                        "id": "hotel-access-control",
+                        "title": "Гостиничные системы контроля и управления доступом",
+                        "url": "/design/hotel-access-control"
+                    },
+                    {
+                        "id": "leak-protection-system",
+                        "title": "Система защиты от протечек",
+                        "url": "/design/leak-protection-system"
+                    },
+                    {
+                        "id": "queue-management-system",
+                        "title": "Система управления живой очередью",
+                        "url": "/design/queue-management-system"
                     }
                 ]
             },
@@ -150,13 +165,50 @@
                 "id": "security-systems",
                 "title": "Системы безопасности",
                 "description": "Комплексные решения по видеонаблюдению, контролю доступа и охранным системам",
-                "pages": []
+                "pages": [
+                    {
+                        "id": "security-alarm",
+                        "title": "Охранно-тревожная сигнализация",
+                        "url": "/design/security-alarm"
+                    },
+                    {
+                        "id": "video-surveillance",
+                        "title": "Система видеонаблюдения",
+                        "url": "/design/video-surveillance"
+                    },
+                    {
+                        "id": "access-control",
+                        "title": "Система контроля и управления доступом",
+                        "url": "/design/access-control"
+                    },
+                    {
+                        "id": "anti-theft-systems",
+                        "title": "Противокражные системы",
+                        "url": "/design/anti-theft-systems"
+                    },
+                    {
+                        "id": "drone-protection",
+                        "title": "Защита от БПЛА",
+                        "url": "/design/drone-protection"
+                    },
+                    {
+                        "id": "perimeter-security",
+                        "title": "Система охраны периметра",
+                        "url": "/design/perimeter-security"
+                    },
+                    {
+                        "id": "deratization-system",
+                        "title": "Охранно-защитная дератизационная система (ОЗДС)",
+                        "url": "/design/deratization-system"
+                    }
+                ]
             },
             {
                 "id": "design-assignment",
                 "title": "Задание на проектирование",
-                "description": "Комплексные решения по видеонаблюдению, контролю доступа и охранным системам",
-                "pages": []
+                "description": "Перейти к заданию на проектирование",
+                "pages": [],
+                "directLink": "/design/assignment"
             }
         ]
     }

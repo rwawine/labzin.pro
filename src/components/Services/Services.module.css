@@ -175,7 +175,8 @@
 @media (max-width: 1200px) {
     
     .container {
-        padding: 0 20px;
+        padding: 0 15px;
+
     }
     
     .header {
@@ -259,7 +260,7 @@
 @media (max-width: 480px) {
     
     .container {
-        padding: 0 10px;
+        padding: 0 15px;
     }
     
     .header {

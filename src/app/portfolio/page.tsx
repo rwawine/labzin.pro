@@ -1,5 +1,6 @@
 import styles from './page.module.css';
 import { Metadata } from 'next';
+import Navigation from '@/components/Navigation/Navigation';
 
 export const metadata: Metadata = {
   title: 'Портфолио | Labzin.pro',
@@ -20,6 +21,8 @@ export const metadata: Metadata = {
 
 export default function Portfolio() {
   return (
-    <div className={styles.container}></div>
+    <div className={styles.container}>
+      <Navigation theme="light" />
+    </div>
   );
 } 

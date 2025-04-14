@@ -1,11 +1,8 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 80px);
-  text-align: center;
-  padding: 2rem;
+  max-width: 1660px;
+  margin: 0 auto;
+  padding: 0 15px;
+  margin-top: 100px;
 }
 
 .title {
@@ -32,4 +29,4 @@
 
 .link:hover {
   background-color: #0056b3;
-} 
+}
