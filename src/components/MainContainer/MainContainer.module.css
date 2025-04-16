@@ -64,10 +64,43 @@
     gap: 24px;
 }
 
+.mainContainer__buttonContainer {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    max-width: 1620px;
+}
+
+.mainContainer__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 15.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+    min-height: 55px;
+    border: none;
+}
+
+.mainContainer__button:hover {
+    background: #3A93FE;
+    color: #fff;
+}
+
 .mainContainer__buttonText {
-    position: relative;
-    line-height: 150%;
     font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #121317;
+    text-align: center;
+}
+
+.mainContainer__button:hover .mainContainer__buttonText {
+    color: #fff;
 }
 
 .mainContainer__buttonIcon {
@@ -76,33 +109,6 @@
     max-height: 100%;
     overflow: hidden;
     flex-shrink: 0;
-}
-
-.mainContainer__button {
-    align-self: stretch;
-    border-radius: 12px;
-    cursor: pointer;
-    background-color: #fff;
-    height: 60px;
-    transition: .2s ease-in-out;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 20px 12px 26px;
-    box-sizing: border-box;
-    gap: 8px;
-    color: #090f1e;
-}
-
-.mainContainer__button:hover {
-    background-color: #3A93FE;
-    color: #fff;
-}
-
-.mainContainer__button:hover svg path {
-    fill: #fff;
-    transition: fill 0.2s ease-in-out;
 }
 
 @media (max-width: 768px) {
@@ -121,5 +127,9 @@
 
     .mainContainer__description {
         width: 100%;
+    }
+
+    .mainContainer__buttonContainer {
+        flex-direction: column;
     }
 }

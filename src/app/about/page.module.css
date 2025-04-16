@@ -14,7 +14,7 @@
 }
 
 .aboutTitle {
-  color: #0D0E14;
+  color: #0d0e14;
   font-variant-numeric: lining-nums proportional-nums;
   font-family: Raleway;
   font-size: 48px;
@@ -25,7 +25,7 @@
 }
 
 .aboutText {
-  color: #2F2F33;
+  color: #2f2f33;
   font-variant-numeric: lining-nums proportional-nums;
   font-family: Montserrat;
   font-size: 24px;
@@ -174,5 +174,357 @@
 
   .backgroundText {
     font-size: clamp(120px, 15vw, 250px);
+  }
+}
+
+/* Стили для секции About Us */
+.accessSection {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  max-width: 1660px;
+  margin: 0 auto;
+  padding: 0 15px;
+  margin-bottom: 120px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 64px;
+}
+
+.sectionTitle {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 110.00000000000001%;
+  letter-spacing: 0%;
+  font-variant-numeric-figure: lining-nums;
+  font-variant-numeric-spacing: proportional-nums;
+  max-width: 640px;
+  color: rgba(13, 14, 20, 1);
+}
+
+.sectionDescription {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  font-variant-numeric-figure: lining-nums;
+  font-variant-numeric-spacing: proportional-nums;
+  color: rgba(47, 47, 51, 1);
+  max-width: 540px;
+}
+
+.clientCardsContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.clientCard {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #f7f7f8;
+  border-radius: 16px;
+  padding: 32px;
+  gap: 32px;
+  width: 100%;
+  max-width: 400px;
+  height: 342px;
+  backdrop-filter: blur(10px);
+}
+
+.cardIcon {
+  width: 64px;
+  height: 64px;
+  /* Здесь можно добавить стили для иконки, когда она будет добавлена */
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardTitle {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 130%;
+  letter-spacing: 0%;
+  font-variant-numeric-figure: lining-nums;
+  font-variant-numeric-spacing: proportional-nums;
+  color: rgba(43, 45, 51, 1);
+}
+
+.cardDescription {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  font-variant-numeric-figure: lining-nums;
+  font-variant-numeric-spacing: proportional-nums;
+  color: rgba(47, 47, 51, 0.8);
+}
+
+@media screen and (max-width: 1635px) {
+  .clientCardsContainer {
+    justify-content: center;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sectionDescription {
+    margin-top: 0;
+  }
+}
+
+/* Стили для секции сертификатов */
+.certificateSection {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin-bottom: 120px;
+}
+
+.certificateHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 80px;
+}
+
+.certificateTitleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 439px;
+}
+
+.certificateTitle {
+  font-size: 32px;
+  text-align: left;
+  font-weight: 600;
+  color: #0d0e14;
+  margin: 0;
+  line-height: 1.2;
+  color: rgba(47, 47, 51, 1);
+}
+
+.certificateDescription {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  font-variant-numeric-figure: lining-nums;
+  font-variant-numeric-spacing: proportional-nums;
+
+  color: rgba(85, 90, 101, 1);
+}
+
+.certificatesSlider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.certificateSlide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f8;
+  border-radius: 16px;
+  overflow: hidden;
+  width: calc(25% - 15px);
+}
+
+.certificateImage {
+  border-radius: 12px;
+  width: 100%;
+}
+
+.sliderControls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.navigationButtons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.autoSliding {
+  position: relative;
+  width: 100px;
+  height: 8px;
+  background-color: #f7f7f8;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.progressBarBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f8;
+  border-radius: 32px;
+}
+
+.progressBarForeground {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: #0c48c6;
+  border-radius: 32px;
+  transition: width 0.1s linear;
+}
+
+.arrowButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.arrowButton:hover:not(.disabled) {
+  background-color: #3579e0;
+  color: #fff;
+  border-color: #3579e0;
+}
+
+.arrowButton:hover svg path {
+  fill: #fff;
+}
+
+.arrowButton.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.arrowIcon {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1635px) {
+  .certificateHeader {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .sliderControls {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .certificateSlide {
+    width: calc(50% - 10px);
+  }
+
+  .certificatesSlider {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .certificateSlide {
+    width: 100%;
+  }
+}
+
+/* Стили для секции баннера */
+.bannerSection {
+  width: 100%;
+  background-image: url("/assets/image/backgroundSolutions.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 120px;
+}
+
+.bannerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 60px;
+  max-width: 1540px;
+}
+
+.bannerTitle {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 110.00000000000001%;
+  letter-spacing: 0%;
+  font-variant-numeric-figure: lining-nums;
+  font-variant-numeric-spacing: proportional-nums;
+  color: #fff;
+  max-width: 580px;
+}
+
+.bannerDescription {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  font-variant-numeric-figure: lining-nums;
+  font-variant-numeric-spacing: proportional-nums;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 730px;
+}
+
+.bannerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 290px;
+  height: 48px;
+  background-color: #8a6ff2;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.bannerButton:hover {
+  background-color: #7a5ee0;
+}
+
+.buttonIcon {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1635px) {
+  .bannerContent {
+    padding: 30px;
   }
 }
