@@ -2,6 +2,10 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import styles from './page.module.css';
+import Image from 'next/image';
+import data from '../data.json';
+import Navigation from '@/components/Navigation/Navigation';
+import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 
 // This would typically come from a database or CMS
 const blogPosts = [
@@ -30,7 +34,7 @@ const blogPosts = [
     `,
     date: '15 июня 2023',
     category: 'Веб-разработка',
-    image: '/images/blog/web-dev-trends.jpg',
+    image: '/assets/image/aboutusimage.png',
     slug: 'web-development-trends-2023',
     author: 'Александр Петров',
     readingTime: '5 мин',
@@ -77,14 +81,14 @@ type Props = {
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const resolvedParams = await props.params;
   const post = blogPosts.find(post => post.slug === resolvedParams.slug);
-  
+
   if (!post) {
     return {
       title: 'Статья не найдена | Labzin.pro',
       description: 'Запрашиваемая статья не найдена.',
     };
   }
-  
+
   return {
     title: `${post.title} | Labzin.pro`,
     description: post.content.substring(0, 160).replace(/<[^>]*>/g, ''),
@@ -120,83 +124,69 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   };
 }
 
-export default async function BlogPost(props: Props) {
-  const resolvedParams = await props.params;
-  const post = blogPosts.find(post => post.slug === resolvedParams.slug);
-  
+interface BlogPostPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+const BlogPostPage = async ({ params }: BlogPostPageProps) => {
+  const post = data.posts.find((post) => {
+    const postSlug = post['title-en']
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+    return postSlug === params.slug;
+  });
+
   if (!post) {
-    notFound();
+    return (
+      <div className={styles.container}>
+        <Navigation theme="light" />
+        <div className={styles.blogContainer}>
+          <h1 className={styles.blogTitle}>Статья не найдена</h1>
+          <p className={styles.notFoundText}>
+            К сожалению, запрашиваемая статья не существует или была удалена.
+          </p>
+          <Link href="/blog" className={styles.backToBlog}>
+            Вернуться к списку статей
+          </Link>
+        </div>
+      </div>
+    );
   }
-  
+
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <Link href="/blog" className={styles.backLink}>
-          ← Назад к блогу
-        </Link>
-        <div className={styles.meta}>
-          <span className={styles.category}>{post.category}</span>
-          <span className={styles.date}>{post.date}</span>
-          <span className={styles.readingTime}>{post.readingTime} чтения</span>
-        </div>
-        <h1 className={styles.title}>{post.title}</h1>
-        <div className={styles.author}>
-          <div className={styles.authorAvatar}></div>
-          <div className={styles.authorInfo}>
-            <span className={styles.authorName}>{post.author}</span>
+      <Navigation theme="light" />
+      <div className={styles.blogContainer}>
+        <Breadcrumbs blogPosts={data.posts} />
+        <article className={styles.article}>
+          <div className={styles.articleImageContainer}>
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              className={styles.articleImage}
+              priority
+            />
           </div>
-        </div>
-      </div>
-      
-      <div className={styles.imageContainer}>
-        <div className={styles.imagePlaceholder}></div>
-      </div>
-      
-      <div 
-        className={styles.content}
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
-      
-      <div className={styles.shareSection}>
-        <h3 className={styles.shareTitle}>Поделиться статьей</h3>
-        <div className={styles.shareButtons}>
-          <button className={`${styles.shareButton} ${styles.facebook}`}>
-            Facebook
-          </button>
-          <button className={`${styles.shareButton} ${styles.twitter}`}>
-            Twitter
-          </button>
-          <button className={`${styles.shareButton} ${styles.telegram}`}>
-            Telegram
-          </button>
-          <button className={`${styles.shareButton} ${styles.whatsapp}`}>
-            WhatsApp
-          </button>
-        </div>
-      </div>
-      
-      <div className={styles.relatedPosts}>
-        <h2 className={styles.relatedTitle}>Похожие статьи</h2>
-        <div className={styles.relatedGrid}>
-          {blogPosts
-            .filter(relatedPost => relatedPost.id !== post.id)
-            .slice(0, 3)
-            .map(relatedPost => (
-              <Link 
-                href={`/blog/${relatedPost.slug}`} 
-                key={relatedPost.id} 
-                className={styles.relatedCard}
-              >
-                <div className={styles.relatedImage}></div>
-                <div className={styles.relatedContent}>
-                  <span className={styles.relatedCategory}>{relatedPost.category}</span>
-                  <h3 className={styles.relatedPostTitle}>{relatedPost.title}</h3>
-                  <span className={styles.relatedDate}>{relatedPost.date}</span>
+          <div className={styles.articleContent}>
+            <time className={styles.articleDate}>{post.date}</time>
+            <h1 className={styles.articleTitle}>{post.title}</h1>
+            <div className={styles.articleText}>
+              {post.content.map((section, index) => (
+                <div key={index} className={styles.section}>
+                  <h2 className={styles.sectionTitle}>{section.title}</h2>
+                  <p className={styles.sectionText}>{section.text}</p>
                 </div>
-              </Link>
-            ))}
-        </div>
+              ))}
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   );
-} 
+};
+
+export default BlogPostPage; 

@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import styles from './page.module.css';
 import Navigation from '@/components/Navigation/Navigation';
+import BlogPost from './components/BlogPost';
+import data from './data.json';
+import ContactForm from '@/components/ContactForm/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Блог',
@@ -34,69 +37,27 @@ export const metadata: Metadata = {
   },
 };
 
-// Mock blog posts data
-const blogPosts = [
-  {
-    id: 1,
-    title: 'Тренды веб-разработки в 2023 году',
-    excerpt: 'Обзор последних трендов в веб-разработке, включая новые фреймворки, подходы к дизайну и технологии, которые определяют будущее интернета.',
-    date: '15 июня 2023',
-    category: 'Веб-разработка',
-    image: '/images/blog/web-dev-trends.jpg',
-    slug: 'web-development-trends-2023',
-  },
-  {
-    id: 2,
-    title: 'Как создать эффективный UI/UX дизайн',
-    excerpt: 'Практические советы и рекомендации по созданию интерфейсов, которые не только выглядят привлекательно, но и обеспечивают отличный пользовательский опыт.',
-    date: '3 июля 2023',
-    category: 'UI/UX Дизайн',
-    image: '/images/blog/ui-ux-design.jpg',
-    slug: 'effective-ui-ux-design',
-  },
-  {
-    id: 3,
-    title: 'Мобильная разработка: нативные приложения vs кроссплатформенные решения',
-    excerpt: 'Сравнительный анализ подходов к разработке мобильных приложений, их преимущества и недостатки, а также рекомендации по выбору технологии для вашего проекта.',
-    date: '22 июля 2023',
-    category: 'Мобильная разработка',
-    image: '/images/blog/mobile-dev.jpg',
-    slug: 'native-vs-cross-platform',
-  },
-  {
-    id: 4,
-    title: 'Оптимизация производительности веб-приложений',
-    excerpt: 'Техники и стратегии для повышения скорости загрузки и отзывчивости веб-приложений, улучшения Core Web Vitals и повышения конверсии.',
-    date: '10 августа 2023',
-    category: 'Оптимизация',
-    image: '/images/blog/performance.jpg',
-    slug: 'web-performance-optimization',
-  },
-  {
-    id: 5,
-    title: 'Введение в микросервисную архитектуру',
-    excerpt: 'Основные принципы, преимущества и вызовы при переходе на микросервисную архитектуру, а также практические примеры реализации.',
-    date: '5 сентября 2023',
-    category: 'Архитектура',
-    image: '/images/blog/microservices.jpg',
-    slug: 'introduction-to-microservices',
-  },
-  {
-    id: 6,
-    title: 'Безопасность в веб-приложениях: лучшие практики',
-    excerpt: 'Обзор основных угроз безопасности веб-приложений и методов их предотвращения, включая OWASP Top 10 и современные подходы к защите данных.',
-    date: '18 сентября 2023',
-    category: 'Безопасность',
-    image: '/images/blog/security.jpg',
-    slug: 'web-security-best-practices',
-  },
-];
-
 const BlogPage = () => {
   return (
     <div className={styles.container}>
       <Navigation theme="light" />
-
+      <div className={styles.blogContainer}>
+        <h1 className={styles.blogTitle}>Блог</h1>
+        <div className={styles.contentContainer}>
+          {data.posts.map((post) => (
+            <BlogPost
+              key={post.id}
+              id={post.id}
+              title={post.title}
+              title-en={post['title-en']}
+              date={post.date}
+              description={post.description}
+              image={post.image}
+            />
+          ))}
+        </div>
+      </div>
+      <ContactForm />
     </div>
   );
 };
