@@ -1,0 +1,133 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  width: 280px;
+  filter: drop-shadow(0 12px 24px rgba(60, 83, 135, 0.09)) 
+          drop-shadow(0 16px 32px rgba(74, 80, 92, 0.05));
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 1000;
+}
+
+.tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.content {
+  background: #1F1F1F;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.arrow {
+  position: absolute;
+  width: 12px;
+  height: 6px;
+  background: #1F1F1F;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+/* Позиционирование */
+.bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+}
+
+.bottom.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+.bottom .arrow {
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.top {
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.top.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+.top .arrow {
+  bottom: -5px;
+  left: 50%;
+}
+
+.left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-10px);
+}
+
+.left.visible {
+  transform: translateY(-50%) translateX(0);
+}
+
+.left .arrow {
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+}
+
+.right.visible {
+  transform: translateY(-50%) translateX(0);
+}
+
+.right .arrow {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+@media (max-width: 768px) {
+  .tooltip {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 280px;
+  }
+
+  .tooltip.visible {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .tooltip .arrow {
+    display: none;
+  }
+}

@@ -12,6 +12,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import { useEffect, useRef, useState } from 'react';
+import Tooltip from '@/components/Tooltip/Tooltip';
 
 export default function Certificates() {
   const progressBarRef = useRef<HTMLDivElement>(null);
@@ -78,36 +79,54 @@ export default function Certificates() {
       <Navigation theme="light" />
       <MainContainer countTitle='' title='Проектируем по стандартам, заслуживающим доверия' description='Сертифицированные решения для объектов любого масштаба' backgroundImage="/assets/image/aboutusimage.png" />
       <div className={styles.sectionContainer}>
-        <h2 className={styles.sectionTitleStandart}><span style={{color: 'rgba(12, 72, 198, 1)'}}>БОЛЕЕ 10 ЛЕТ ОПЫТА</span> ПО СТРОГИМ СТАНДАРТАМ</h2>
-        
+        <h2 className={styles.sectionTitleStandart}><span style={{ color: 'rgba(12, 72, 198, 1)' }}>БОЛЕЕ 10 ЛЕТ ОПЫТА</span> ПО СТРОГИМ СТАНДАРТАМ</h2>
+
         <div className={styles.tabContainer}>
           <div className={styles.navigationTabs}>
-            <button className={styles.tabBtn}>
+            <Tooltip
+              title="ГОСТ"
+              description="Это государственный стандарт, который включает в себя требования государства к качеству продукции, его геометрические размеры, отклонения от эталона и т.д."
+              position="top"
+            >
+              <button className={styles.tabBtn}>
               <span className={styles.tabText}>ГОСТ</span>
               <svg className={styles.tabIcon} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
+            </Tooltip>
 
-            <button className={styles.tabBtn}>
-              <span className={styles.tabText}>ISO 9001</span>
-              <svg className={styles.tabIcon} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
+            <Tooltip
+              title="ISO 9001"
+              description="Международный стандарт, описывающий требования к системе менеджмента качества"
+              position="top"
+            >
+              <button className={styles.tabBtn}>
+                <span className={styles.tabText}>ISO 9001</span>
+                <svg className={styles.tabIcon} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </Tooltip>
 
-            <button className={styles.tabBtn}>
+            <Tooltip
+              title="СРО"
+              description="Международный стандарт, описывающий требования к системе менеджмента качества"
+              position="top"
+            >
+               <button className={styles.tabBtn}>
               <span className={styles.tabText}>СРО</span>
               <svg className={styles.tabIcon} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
+            </Tooltip>
           </div>
 
           <p className={styles.sectionDescription}>
