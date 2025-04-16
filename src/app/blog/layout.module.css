@@ -1,0 +1,10 @@
+.blogLayout {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .blogLayout {
+    padding: 0 15px;
+  }
+} 

@@ -28,8 +28,6 @@
     line-height: 110.00000000000001%;
     letter-spacing: 0%;
     text-align: center;
-    font-variant-numeric-figure: lining-nums;
-    font-variant-numeric-spacing: proportional-nums;
     max-width: 810px;
     color: rgba(21, 21, 21, 1);
 }
@@ -41,8 +39,6 @@
     line-height: 150%;
     letter-spacing: 0%;
     text-align: right;
-    font-variant-numeric-figure: lining-nums;
-    font-variant-numeric-spacing: proportional-nums;
     color: rgba(65, 65, 65, 1);
 }
 

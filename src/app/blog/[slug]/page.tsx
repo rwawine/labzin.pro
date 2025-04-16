@@ -80,23 +80,37 @@ type Props = {
 // Generate metadata for the blog post
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const resolvedParams = await props.params;
-  const post = blogPosts.find(post => post.slug === resolvedParams.slug);
+  const post = data.posts.find((post) => {
+    const postSlug = post['title-en']
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+    return postSlug === resolvedParams.slug;
+  });
 
   if (!post) {
     return {
       title: 'Статья не найдена | Labzin.pro',
       description: 'Запрашиваемая статья не найдена.',
+      robots: {
+        index: false,
+        follow: true,
+      },
     };
   }
 
+  const postUrl = `https://labzin.pro/blog/${resolvedParams.slug}`;
+  const postDescription = post.description || post.content[0]?.text || '';
+
   return {
     title: `${post.title} | Labzin.pro`,
-    description: post.content.substring(0, 160).replace(/<[^>]*>/g, ''),
-    keywords: `${post.category.toLowerCase()}, ${post.title.toLowerCase()}, веб-разработка, дизайн, IT`,
+    description: postDescription,
+    keywords: `${post['title-en'].toLowerCase()}, веб-разработка, дизайн, IT`,
+    authors: [{ name: 'Labzin.pro' }],
     openGraph: {
       title: post.title,
-      description: post.content.substring(0, 160).replace(/<[^>]*>/g, ''),
-      url: `https://labzin.pro/blog/${post.slug}`,
+      description: postDescription,
+      url: postUrl,
       siteName: 'Labzin.pro',
       images: [
         {
@@ -109,17 +123,32 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       locale: 'ru_RU',
       type: 'article',
       publishedTime: post.date,
-      authors: [post.author],
-      tags: [post.category],
+      authors: ['Labzin.pro'],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: post.content.substring(0, 160).replace(/<[^>]*>/g, ''),
+      description: postDescription,
       images: [post.image],
     },
     alternates: {
-      canonical: `https://labzin.pro/blog/${post.slug}`,
+      canonical: postUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    other: {
+      'article:published_time': post.date,
+      'article:author': 'Labzin.pro',
+      'article:section': 'Блог',
     },
   };
 }

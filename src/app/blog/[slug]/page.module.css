@@ -5,9 +5,6 @@
   margin-top: 120px;
 }
 
-.blogContainer {
-}
-
 .article {
   max-width: 1200px;
   margin: 0 auto;
@@ -41,13 +38,10 @@
 
 .articleTitle {
   font-family: Montserrat;
-font-weight: 500;
-font-size: 18px;
-line-height: 130%;
-letter-spacing: 0%;
-font-variant-numeric-figure: lining-nums;
-font-variant-numeric-spacing: proportional-nums;
-
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 130%;
+  letter-spacing: 0%;
 }
 
 .articleText {

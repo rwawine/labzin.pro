@@ -44,9 +44,6 @@
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0%;
-  font-variant-numeric-figure: lining-nums;
-  font-variant-numeric-spacing: proportional-nums;
-
   color: rgba(85, 90, 101, 1);
 }
 
@@ -194,8 +191,6 @@
   letter-spacing: 0%;
   text-align: center;
   text-transform: uppercase;
-  font-variant-numeric-figure: lining-nums;
-  font-variant-numeric-spacing: proportional-nums;
   color: rgba(13, 14, 20, 1);
 }
 
