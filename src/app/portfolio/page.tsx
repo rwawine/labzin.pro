@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -92,7 +92,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div>
+    <>
       <Navigation theme="dark" />
       <div className={styles.mainBackground}>
         <div className={styles.heroContent}>
@@ -250,8 +250,8 @@ export default function Portfolio() {
                   </defs>
                 </svg>
               </div>
-              <h3 className={styles.cardTitle}>Пример СПС, СОУЭ и ТРВ</h3>
-              <p className={styles.cardSubtitle}>PDF. 4 Мб</p>
+              <h3 className={styles.cardTitle}>Пример СПС, СОУЭ и ТРВ</h3>
+              <p className={styles.cardSubtitle}>PDF. 4 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
               <div className={styles.cardButton}>
@@ -284,7 +284,7 @@ export default function Portfolio() {
                 </svg>
               </div>
               <h3 className={styles.cardTitle}>Пример СОУЭ</h3>
-              <p className={styles.cardSubtitle}>PDF. 3 Мб</p>
+              <p className={styles.cardSubtitle}>PDF. 3 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
               <div className={styles.cardButton}>
@@ -316,8 +316,8 @@ export default function Portfolio() {
                   </defs>
                 </svg>
               </div>
-              <h3 className={styles.cardTitle}>Пример АУВПТ и ВПВ</h3>
-              <p className={styles.cardSubtitle}>PDF. 3 Мб</p>
+              <h3 className={styles.cardTitle}>Пример АУВПТ и ВПВ</h3>
+              <p className={styles.cardSubtitle}>PDF. 3 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
               <div className={styles.cardButton}>
@@ -350,7 +350,7 @@ export default function Portfolio() {
                 </svg>
               </div>
               <h3 className={styles.cardTitle}>Пример СОТС</h3>
-              <p className={styles.cardSubtitle}>PDF. 1 Мб</p>
+              <p className={styles.cardSubtitle}>PDF. 1 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
               <div className={styles.cardButton}>
@@ -383,7 +383,7 @@ export default function Portfolio() {
                 </svg>
               </div>
               <h3 className={styles.cardTitle}>Пример СКУД</h3>
-              <p className={styles.cardSubtitle}>PDF. 2 Мб</p>
+              <p className={styles.cardSubtitle}>PDF. 2 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
               <div className={styles.cardButton}>
@@ -415,8 +415,8 @@ export default function Portfolio() {
                   </defs>
                 </svg>
               </div>
-              <h3 className={styles.cardTitle}>Пример ЛВС</h3>
-              <p className={styles.cardSubtitle}>PDF. 5 Мб</p>
+              <h3 className={styles.cardTitle}>Пример ЛВС</h3>
+              <p className={styles.cardSubtitle}>PDF. 5 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
               <div className={styles.cardButton}>
@@ -448,8 +448,8 @@ export default function Portfolio() {
                   </defs>
                 </svg>
               </div>
-              <h3 className={styles.cardTitle}>Пример СВН</h3>
-              <p className={styles.cardSubtitle}>PDF. 965 Кб</p>
+              <h3 className={styles.cardTitle}>Пример СВН</h3>
+              <p className={styles.cardSubtitle}>PDF. 965 Кб</p>
             </div>
             <div className={styles.cardButtonDiv}>
               <div className={styles.cardButton}>
@@ -481,8 +481,8 @@ export default function Portfolio() {
                   </defs>
                 </svg>
               </div>
-              <h3 className={styles.cardTitle}>Пример АК</h3>
-              <p className={styles.cardSubtitle}>PDF. 2 Мб</p>
+              <h3 className={styles.cardTitle}>Пример АК</h3>
+              <p className={styles.cardSubtitle}>PDF. 2 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
               <div className={styles.cardButton}>
@@ -514,9 +514,8 @@ export default function Portfolio() {
                   </defs>
                 </svg>
               </div>
-              <h3 className={styles.cardTitle}>Пример 
-              Автоматизации парковок</h3>
-              <p className={styles.cardSubtitle}>PDF. 552 Кб</p>
+              <h3 className={styles.cardTitle}>Пример Автоматизации парковок</h3>
+              <p className={styles.cardSubtitle}>PDF. 552 Кб</p>
             </div>
             <div className={styles.cardButtonDiv}>
               <div className={styles.cardButton}>
@@ -530,6 +529,6 @@ export default function Portfolio() {
         <p className={styles.backgroundTextExample}>Документы</p>
       </div>
       <ContactForm />
-    </div>
+    </>
   );
 } 

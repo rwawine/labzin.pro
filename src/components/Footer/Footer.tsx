@@ -83,6 +83,8 @@ export default function Footer() {
                             <li>Полезная информация</li>
                             <li>Сотрудничество</li>
                             <li>О компании</li>
+                            <li>Вакансии</li>
+                            <li>Блог</li>
                         </ul>
                     </nav>
                 </div>
