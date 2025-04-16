@@ -73,19 +73,18 @@ const blogPosts = [
 ];
 
 type Props = {
-  params: Promise<{ slug: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 // Generate metadata for the blog post
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const resolvedParams = await props.params;
   const post = data.posts.find((post) => {
     const postSlug = post['title-en']
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
-    return postSlug === resolvedParams.slug;
+    return postSlug === props.params.slug;
   });
 
   if (!post) {
@@ -99,7 +98,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     };
   }
 
-  const postUrl = `https://labzin.pro/blog/${resolvedParams.slug}`;
+  const postUrl = `https://labzin.pro/blog/${props.params.slug}`;
   const postDescription = post.description || post.content[0]?.text || '';
 
   return {
@@ -160,13 +159,12 @@ interface BlogPostPageProps {
 }
 
 const BlogPostPage = async ({ params }: BlogPostPageProps) => {
-  const resolvedParams = await params;
   const post = data.posts.find((post) => {
     const postSlug = post['title-en']
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
-    return postSlug === resolvedParams.slug;
+    return postSlug === params.slug;
   });
 
   if (!post) {
