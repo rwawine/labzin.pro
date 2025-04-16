@@ -72,19 +72,21 @@ const blogPosts = [
   // Add more blog posts as needed
 ];
 
-type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+type PageProps = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 // Generate metadata for the blog post
-export async function generateMetadata(props: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
   const post = data.posts.find((post) => {
     const postSlug = post['title-en']
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
-    return postSlug === props.params.slug;
+    return postSlug === resolvedParams.slug;
   });
 
   if (!post) {
@@ -98,7 +100,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     };
   }
 
-  const postUrl = `https://labzin.pro/blog/${props.params.slug}`;
+  const postUrl = `https://labzin.pro/blog/${resolvedParams.slug}`;
   const postDescription = post.description || post.content[0]?.text || '';
 
   return {
@@ -152,19 +154,15 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   };
 }
 
-interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
-}
-
-const BlogPostPage = async ({ params }: BlogPostPageProps) => {
+export default async function Page({ params, searchParams }: PageProps) {
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
   const post = data.posts.find((post) => {
     const postSlug = post['title-en']
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
-    return postSlug === params.slug;
+    return postSlug === resolvedParams.slug;
   });
 
   if (!post) {
@@ -215,6 +213,4 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
       </div>
     </div>
   );
-};
-
-export default BlogPostPage; 
+} 
