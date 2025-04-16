@@ -131,12 +131,13 @@ interface BlogPostPageProps {
 }
 
 const BlogPostPage = async ({ params }: BlogPostPageProps) => {
+  const resolvedParams = await params;
   const post = data.posts.find((post) => {
     const postSlug = post['title-en']
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
-    return postSlug === params.slug;
+    return postSlug === resolvedParams.slug;
   });
 
   if (!post) {
