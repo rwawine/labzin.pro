@@ -1,0 +1,138 @@
+.jobListing {
+    width: 100%;
+    background: #F7F7F8;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.jobHeader {
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.3s ease;
+}
+
+.jobHeader:hover {
+    color: #fff;
+    background: #0C48C6;
+}
+
+.jobHeader:hover .jobTitle {
+    color: #fff;
+}
+
+.jobHeader:hover .arrowCircle {
+    background-color: #fff;
+}
+
+.jobHeader:hover .arrowCircle svg path {
+    stroke: #0C48C6;
+}
+
+.jobDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.jobTitle {
+    color: #0D0E14;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    /* 35.2px */
+}
+
+.jobDate {
+    display: flex;
+}
+
+.jobDate span {
+    background-color: #fff;
+    border-radius: 200px;
+    padding: 8px 24px;
+    color: #0C0C0D;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 24px */
+    color: #0C0C0D;
+}
+
+.jobArrow {
+    transition: transform 0.3s ease;
+}
+
+.jobArrowOpen {
+    transform: rotate(180deg);
+}
+
+.arrowCircle {
+    width: 62px;
+    height: 62px;
+    background: #0C48C6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.jobContent {
+    padding: 24px 40px 40px;
+    overflow: hidden;
+}
+
+.jobSection {
+    margin-bottom: 32px;
+}
+
+.jobSection:last-child {
+    margin-bottom: 0;
+}
+
+.jobSection h4 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #0D0E14;
+    margin: 0 0 16px;
+}
+
+.jobSection ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.jobSection li {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #0D0E14;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 24px;
+}
+
+.jobSection li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background: #0C48C6;
+    border-radius: 50%;
+}

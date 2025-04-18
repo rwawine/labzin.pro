@@ -1,0 +1,170 @@
+.form {
+  background-color: #F7F7F8;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 540px;
+  width: 100%;
+}
+
+.title {
+  color: #0D0E14;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 40px 0;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.inputWrapper {
+  width: 100%;
+}
+
+.textarea {
+  width: 100%;
+  height: 147px;
+  background: #FFFFFF;
+  border: 1px solid #C8C8E1;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 16px;
+  color: #0D0E14;
+  transition: border-color 0.2s;
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: #A2A2AE;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #3A93FE;
+}
+
+.fileUpload {
+  width: 100%;
+  height: 100px;
+  background: #FFFFFF;
+  border: 1px solid #C8C8E1;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.fileInput {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fileLabel {
+  color: #A2A2AE;
+  text-align: center;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fileSizeLimit {
+  font-size: 14px;
+}
+
+.consent {
+  margin-bottom: 40px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #A2A2AE;
+}
+
+.link {
+  color: #3A93FE;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.submitSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.submitButton {
+  width: 100%;
+  height: 60px;
+  background: #3A93FE;
+  border-radius: 12px;
+  border: none;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+  background: #2B7FE5;
+}
+
+.submitIcon {
+  font-size: 20px;
+}
+
+.orSection {
+  width: 100%;
+  text-align: center;
+}
+
+.orText {
+  color: #A2A2AE;
+  font-size: 14px;
+}
+
+.whatsappButton {
+  width: 100%;
+  height: 60px;
+  background: #67C15E;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.whatsappButton:hover {
+  background: #5BAF53;
+}
+
+.whatsappIcon {
+  width: 48px;
+  height: 48px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #67C15E;
+} 

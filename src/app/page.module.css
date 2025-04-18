@@ -209,8 +209,7 @@
 /* Мобильные устройства */
 @media (max-width: 768px) {
     .mainBackground {
-        height: auto;
-        min-height: 100vh;
+        height: 100vh;
     }
     
     .heroContent {

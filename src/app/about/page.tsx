@@ -76,14 +76,14 @@ export default function About() {
   return (
     <div>
       <Navigation theme="light" />
-      <div className={styles.container}>
+      <main className={styles.container}>
         <MainContainer backgroundImage="/assets/image/aboutusimage.png" />
-        <div className={styles.aboutSection}>
-          <h2 className={styles.aboutTitle}>КТО МЫ?</h2>
+        <section className={styles.aboutSection}>
+          <h1 className={styles.aboutTitle}>КТО МЫ?</h1>
           <p className={styles.aboutText}>
             Labzin.pro — команда профессионалов с опытом более 10 лет. Проектируем надёжные инженерные системы для жилых, коммерческих и промышленных объектов.
           </p>
-        </div>
+        </section>
         <div className={styles.counterSection}>
           <div className={styles.statistics}>
             <div className={styles.statistics__item}>
@@ -340,7 +340,7 @@ export default function About() {
         </div>
         <Map />
         <ContactForm />
-      </div>
+      </main>
     </div>
   );
 } 
