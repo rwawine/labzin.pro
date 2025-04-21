@@ -1,15 +1,6 @@
-'use client'
-
-import React, { useState } from 'react'
 import styles from "./OurAdvantages.module.css"
-import DocumentViewer from '../DocumentViewer/DocumentViewer';
 
 export default function OurAdvantages() {
-    const [isViewerOpen, setIsViewerOpen] = useState(false);
-
-    const handleCloseViewer = () => {
-        setIsViewerOpen(false);
-    };
 
     return (
         <section className={styles.ourAdvantages}>
@@ -35,17 +26,11 @@ export default function OurAdvantages() {
                             <p className={styles.cardSubtitle}>XLSX. 10,5 кб</p>
                         </div>
                         <div className={styles.cardButtonDiv}>
-                            <div className={styles.cardButton} onClick={() => setIsViewerOpen(true)}>
+                            <div className={styles.cardButton}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </div>
-                            {isViewerOpen && (
-                                <DocumentViewer
-                                    url="https://disk.yandex.by/edit/disk/disk%2F%21%20САЙТ%2F%21Статьи%20для%20сайта%2F3%20На%20сайт%2FАварийное%20освещение.docx?sk=y41b337ac62d73b57e0c570bbf3043162"
-                                    onClose={handleCloseViewer}
-                                />
-                            )}
                         </div>
                     </div>
                     <button className={styles.downloadButton}>
