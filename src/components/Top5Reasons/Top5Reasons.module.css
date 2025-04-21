@@ -31,10 +31,7 @@
 }
 
 .title {
-    font-size: 42px;
     font-weight: 600;
-    color: #242424;
-    margin: 0;
     text-align: left;
     font-size: 32px;
     text-align: left;
@@ -43,11 +40,10 @@
 }
 
 .description {
-    text-align: left;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #1A1A1A;
-    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
 }
 
 .cardsContainer {
@@ -120,15 +116,18 @@
 .cardTitle {
     font-size: 18px;
     font-weight: 600;
-    color: #1A1A1A;
+    text-align: left;
+    color: #1a1a1a;
     margin: 0;
 }
 
 .cardDescription {
     font-size: 16px;
-    line-height: 1.5;
-    color: #1A1A1A;
+    max-width: 720px;
+    color: #1a1a1a;
     margin: 0;
+    line-height: 1.5;
+    text-align: left;
 }
 
 @media (max-width: 1200px) {

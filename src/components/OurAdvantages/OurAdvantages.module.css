@@ -39,15 +39,10 @@
 }
 
 .titleText {
-  font-size: 42px;
   font-weight: 600;
-  color: #242424;
-  margin: 0;
-  text-align: left;
-
   font-size: 32px;
   text-align: left;
-  color: rgb(13, 14, 20);
+  color: #0d0e14;
   line-height: 1.2;
 }
 
@@ -183,18 +178,16 @@
 .advantageTitle {
   font-size: 18px;
   font-weight: 600;
-  text-align: left;
-  color: #1A1A1A;
+  color: #1a1a1a;
   margin: 0;
 }
 
 .advantageText {
   font-size: 16px;
   max-width: 720px;
-  color: #1A1A1A;
+  color: #1a1a1a;
   margin: 0;
   line-height: 1.5;
-  text-align: left;
 }
 
 @media (max-width: 768px) {
