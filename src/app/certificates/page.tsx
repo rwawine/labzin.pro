@@ -18,6 +18,31 @@ export default function Certificates() {
   const progressBarRef = useRef<HTMLDivElement>(null);
   const swiperRef = useRef<any>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const certificates = [
+    {
+      src: "/assets/image/certificates/Аварийное освещение «СКАТ».png",
+      alt: "Сертификат по аварийному освещению «СКАТ»"
+    },
+    {
+      src: "/assets/image/certificates/Основы СКС LANMASTER -1.png",
+      alt: "Сертификат от Hikvision"
+    },
+    {
+      src: "/assets/image/certificates/Проектирование систем пожарной сигнализации на базе ИСО «Орион»-1.png",
+      alt: "Основы СКС LANMASTER"
+    },
+    {
+      src: "/assets/image/certificates/Сертификат от Hikvision.png",
+      alt: "Аварийное освещение «СКАТ»"
+    },
+    {
+      src: "/assets/image/certificates/Курс проектирование, инсталляции и обслуживания объектов а использованием продукции СКС Лан Юнион.png",
+      alt: "Курс проектирование, инсталляции и обслуживания объектов с использованием продукции СКС Лан Юнион"
+    }
+  ];
 
   useEffect(() => {
     const progressBar = progressBarRef.current;
@@ -72,6 +97,15 @@ export default function Certificates() {
     if (!swiperRef.current) return;
     swiperRef.current.slideNext();
     if (isPaused) handleResume();
+  };
+
+  const handleImageClick = (index: number) => {
+    setActiveIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -361,48 +395,59 @@ export default function Certificates() {
             }}
             className={styles.certificatesSlider}
           >
-            <SwiperSlide className={styles.certificateSlide}>
-              <img
-                src="/assets/image/certificates/Аварийное освещение «СКАТ».png"
-                alt="Сертификат по аварийному освещению «СКАТ»"
-                className={styles.certificateImage}
-                loading="lazy"
-              />
-            </SwiperSlide>
-
-            <SwiperSlide className={styles.certificateSlide}>
-              <img
-                src="/assets/image/certificates/Основы СКС LANMASTER -1.png"
-                alt="Сертификат от Hikvision"
-                className={styles.certificateImage}
-              />
-            </SwiperSlide>
-
-            <SwiperSlide className={styles.certificateSlide}>
-              <img
-                src="/assets/image/certificates/Проектирование систем пожарной сигнализации на базе ИСО «Орион»-1.png"
-                alt="Основы СКС LANMASTER"
-                className={styles.certificateImage}
-              />
-            </SwiperSlide>
-
-            <SwiperSlide className={styles.certificateSlide}>
-              <img
-                src="/assets/image/certificates/Сертификат от Hikvision.png"
-                alt="Аварийное освещение «СКАТ»"
-                className={styles.certificateImage}
-              />
-            </SwiperSlide>
-
-            <SwiperSlide className={styles.certificateSlide}>
-              <img
-                src="/assets/image/certificates/Курс проектирование, инсталляции и обслуживания объектов а использованием продукции СКС Лан Юнион.png"
-                alt="Курс проектирование, инсталляции и обслуживания объектов с использованием продукции СКС Лан Юнион"
-                className={styles.certificateImage}
-              />
-            </SwiperSlide>
+            {certificates.map((cert, index) => (
+              <SwiperSlide key={index} className={styles.certificateSlide}>
+                <img
+                  src={cert.src}
+                  alt={cert.alt}
+                  className={styles.certificateImage}
+                  loading="lazy"
+                  onClick={() => handleImageClick(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      handleImageClick(index);
+                    }
+                  }}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </section>
+
+        {isModalOpen && (
+          <div className={styles.modalOverlay}>
+            <div className={styles.modalContent}>
+              <button 
+                className={styles.closeButton}
+                onClick={handleCloseModal}
+                aria-label="Закрыть"
+              >
+                ×
+              </button>
+              <div className={styles.modalImageContainer} onClick={handleCloseModal}>
+                <Swiper
+                  modules={[SwiperNavigation]}
+                  initialSlide={activeIndex}
+                  navigation={true}
+                  className={styles.modalSwiper}
+                >
+                  {certificates.map((cert, index) => (
+                    <SwiperSlide key={index} className={styles.modalSlide}>
+                      <img
+                        src={cert.src}
+                        alt={cert.alt}
+                        className={styles.modalImage}
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            </div>
+          </div>
+        )}
 
         <Review />
         <ContactForm />

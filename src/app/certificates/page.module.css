@@ -62,11 +62,17 @@
   border-radius: 16px;
   overflow: hidden;
   width: calc(25% - 15px);
+  transition: background-color 0.2s ease;
 }
 
 .certificateImage {
   border-radius: 12px;
   width: 100%;
+  cursor: pointer;
+}
+
+.certificateSlide:hover {
+  background-color: #fff;
 }
 
 .sliderControls {
@@ -271,7 +277,7 @@
   .sectionContainer {
     gap: 32px;
   }
-  
+
   .tabBtn {
     width: 100%;
   }
@@ -334,7 +340,7 @@
   .principlesGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .principlesGridBottom {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -351,4 +357,59 @@
   .principlesGridBottom {
     grid-template-columns: 1fr;
   }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  background-color: transparent;
+}
+
+.modalImageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modalSwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.modalSlide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.modalImage {
+  height: 90%;
+  object-fit: contain;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
