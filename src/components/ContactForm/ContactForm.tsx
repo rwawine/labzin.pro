@@ -10,6 +10,7 @@ interface FormErrors {
     phone?: string;
     email?: string;
     consent?: string;
+    submit?: string;
 }
 
 export default function ContactForm() {
@@ -20,9 +21,11 @@ export default function ContactForm() {
         email: '',
         question: ''
     });
-    const [errors, setErrors] = useState<FormErrors>({}); // Состояние для хранения ошибок
+    const [errors, setErrors] = useState<FormErrors>({});
     const [isConsentChecked, setIsConsentChecked] = useState(false);
     const [attachedFiles, setAttachedFiles] = useState<File[]>([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     // --- Функции валидации ---
@@ -37,14 +40,14 @@ export default function ContactForm() {
         // Валидация телефона
         if (!formData.phone.trim()) {
             newErrors.phone = 'Пожалуйста, укажите ваш телефон';
-        } else if (!/^[\+?\d\s()-]+$/.test(formData.phone)) { // Простая проверка на наличие цифр, плюса, скобок, дефисов
+        } else if (!/^[\+?\d\s()-]+$/.test(formData.phone)) {
             newErrors.phone = 'Некорректный формат телефона';
         }
 
         // Валидация email
         if (!formData.email.trim()) {
             newErrors.email = 'Пожалуйста, укажите ваш Email';
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) { // Простая проверка email
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
             newErrors.email = 'Некорректный формат Email';
         }
 
@@ -56,29 +59,60 @@ export default function ContactForm() {
         return newErrors;
     };
 
-    const handleSubmit = (e: FormEvent) => { // Используем FormEvent
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        const validationErrors = validateForm(); // Запускаем валидацию
-        setErrors(validationErrors); // Обновляем состояние ошибок
+        const validationErrors = validateForm();
+        setErrors(validationErrors);
 
-        // Если есть ошибки, прекращаем выполнение
         if (Object.keys(validationErrors).length > 0) {
-            // Найдем первое поле с ошибкой и сфокусируемся на нем (опционально)
             const firstErrorField = Object.keys(validationErrors)[0] as keyof FormErrors;
             const element = document.getElementById(firstErrorField);
             element?.focus();
             return;
         }
 
-        // Здесь можно добавить логику отправки данных на сервер
-        console.log('Отправка формы:', formData);
-        console.log('Прикрепленные файлы:', attachedFiles);
+        setIsLoading(true);
 
-        // Очистка формы после успешной отправки (пример)
-        // setFormData({ name: '', company: '', phone: '', email: '', question: '' });
-        // setAttachedFiles([]);
-        // setIsConsentChecked(false);
-        // setErrors({});
+        try {
+            const formDataToSend = new FormData();
+            formDataToSend.append('name', formData.name);
+            formDataToSend.append('company', formData.company);
+            formDataToSend.append('phone', formData.phone);
+            formDataToSend.append('email', formData.email);
+            formDataToSend.append('question', formData.question);
+            
+            if (attachedFiles.length > 0) {
+                attachedFiles.forEach(file => {
+                    formDataToSend.append('files', file);
+                });
+            }
+
+            const response = await fetch('/api/send-contact-form', {
+                method: 'POST',
+                body: formDataToSend
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Произошла ошибка при отправке формы');
+            }
+
+            setIsSuccess(true);
+            // Очищаем форму через 2 секунды
+            setTimeout(() => {
+                setFormData({ name: '', company: '', phone: '', email: '', question: '' });
+                setAttachedFiles([]);
+                setIsConsentChecked(false);
+                setErrors({});
+                setIsSuccess(false);
+            }, 2000);
+
+        } catch (err) {
+            setErrors({ ...errors, submit: err instanceof Error ? err.message : 'Произошла ошибка при отправке формы' });
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     // Обработчик изменений для очистки ошибок при вводе
@@ -208,138 +242,157 @@ export default function ContactForm() {
                 </div>
             </div>
 
-            <form className={styles.formContainer} onSubmit={handleSubmit} noValidate>
-                <div className={styles.inputFieldsContainer}>
-                    <div className={styles.nameAndCompanyContainer}>
-                        <Input
-                            id="name"
-                            label="Имя*"
-                            placeholder=""
-                            value={formData.name}
-                            onChange={(value) => handleInputChange('name', value)}
-                            required
-                            error={errors.name}
-                        />
-                        <Input
-                            id="company"
-                            label="Компания"
-                            placeholder=""
-                            value={formData.company}
-                            onChange={(value) => handleInputChange('company', value)}
-                        />
-                    </div>
-
-                    <div className={styles.phoneAndEmailContainer}>
-                        <Input
-                            id="phone"
-                            label="Телефон*"
-                            placeholder=""
-                            type="tel"
-                            value={formData.phone}
-                            onChange={(value) => handleInputChange('phone', value)}
-                            required
-                            error={errors.phone}
-                        />
-                        <Input
-                            id="email"
-                            label="Email*"
-                            placeholder=""
-                            type="email"
-                            value={formData.email}
-                            onChange={(value) => handleInputChange('email', value)}
-                            required
-                            error={errors.email}
-                        />
-                    </div>
-
-                    <div
-                        className={styles.fileUploadContainer}
-                        onClick={() => fileInputRef.current?.click()}
-                        onDrop={handleFileDrop}
-                        onDragOver={handleDragOver}
-                        onDragLeave={handleDragLeave}
-                    >
-                        <input
-                            type="file"
-                            ref={fileInputRef}
-                            onChange={handleFileChange}
-                            style={{ display: 'none' }}
-                            accept=".zip,.rar"
-                            multiple
-                        />
-                        <span>Загрузите все необходимые файлы одним архивом (*.zip, *.rar) Максимальный размер загружаемого файла 26Мб</span>
-                    </div>
-
-                    {attachedFiles.length > 0 && (
-                        <div className={styles.attachedFilesContainer}>
-                            <h3 className={styles.attachedFilesTitle}>Прикрепленные файлы:</h3>
-                            <div className={styles.attachedFilesList}>
-                                {attachedFiles.map((file, index) => (
-                                    <div key={index} className={styles.attachedFileItem}>
-                                        <div className={styles.fileIcon}>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#3A93FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                                <path d="M14 2V8H20" stroke="#3A93FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                                <path d="M16 13H8" stroke="#3A93FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                                <path d="M16 17H8" stroke="#3A93FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                                <path d="M10 9H9H8" stroke="#3A93FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
-                                        </div>
-                                        <div className={styles.fileInfo}>
-                                            <div className={styles.fileName}>{file.name}</div>
-                                            <div className={styles.fileSize}>{formatFileSize(file.size)}</div>
-                                        </div>
-                                        <button
-                                            type="button"
-                                            className={styles.removeFileButton}
-                                            onClick={() => removeFile(index)}
-                                        >
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12 4L4 12" stroke="#A2A2AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                <path d="M4 4L12 12" stroke="#A2A2AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-
-                    <textarea
-                        id="question"
-                        className={styles.textarea}
-                        placeholder="Ваш вопрос"
-                        value={formData.question}
-                        onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleInputChange('question', e.target.value)}
-                    />
-                </div>
-
-                <div className={styles.consentAndSubmitContainer}>
-                    <div className={`${styles.checkboxContainer} ${errors.consent ? styles.checkboxError : ''}`}>
-                        <label>
-                            <input
-                                type="checkbox"
-                                id="consent"
-                                className={styles.checkbox}
-                                checked={isConsentChecked}
-                                onChange={handleConsentChange}
-                                required
-                            />
-                            <span className={styles.checkmark}></span>
-                            <span className={styles.consentLabelText}>
-                                Нажимая на кнопку, вы даёте согласие на обработку своих <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">персональных данных</a> и соглашаетесь c <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
-                            </span>
-                        </label>
-                        {errors.consent && <span className={styles.errorMessageCheckbox}>{errors.consent}</span>}
-                    </div>
-                </div>
-                <button type="submit" className={styles.submitButton}>
-                    Отправить заявку
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.0009 15.5858L13.5867 12L10.0009 8.41426C9.95209 8.36544 9.90937 8.31284 9.87276 8.25739C9.61648 7.86924 9.65919 7.34176 10.0009 7.00005C10.3914 6.60952 11.0246 6.60952 11.4151 7.00005L15.708 11.2929C15.8955 11.4805 16.0009 11.7348 16.0009 12C16.0009 12.2653 15.8955 12.5196 15.708 12.7072L11.4151 17C11.0246 17.3906 10.3914 17.3906 10.0009 17C9.61038 16.6095 9.61038 15.9764 10.0009 15.5858Z" fill="black" />
+            {isSuccess ? (
+                <div className={styles.successContent}>
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 58.6667C46.7276 58.6667 58.6667 46.7276 58.6667 32C58.6667 17.2724 46.7276 5.33334 32 5.33334C17.2724 5.33334 5.33334 17.2724 5.33334 32C5.33334 46.7276 17.2724 58.6667 32 58.6667Z" fill="#4CAF50"/>
+                        <path d="M21.3333 32L28.4444 39.1111L42.6667 24.8889" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                </button>
-            </form>
+                    <h2 className={styles.successTitle}>Успешно отправлено!</h2>
+                    <p className={styles.successText}>Мы свяжемся с вами в ближайшее время</p>
+                </div>
+            ) : (
+                <form className={styles.formContainer} onSubmit={handleSubmit} noValidate>
+                    <div className={styles.inputFieldsContainer}>
+                        <div className={styles.nameAndCompanyContainer}>
+                            <Input
+                                id="name"
+                                label="Имя*"
+                                placeholder=""
+                                value={formData.name}
+                                onChange={(value) => handleInputChange('name', value)}
+                                required
+                                error={errors.name}
+                                disabled={isLoading}
+                            />
+                            <Input
+                                id="company"
+                                label="Компания"
+                                placeholder=""
+                                value={formData.company}
+                                onChange={(value) => handleInputChange('company', value)}
+                                disabled={isLoading}
+                            />
+                        </div>
+
+                        <div className={styles.phoneAndEmailContainer}>
+                            <Input
+                                id="phone"
+                                label="Телефон*"
+                                placeholder=""
+                                type="tel"
+                                value={formData.phone}
+                                onChange={(value) => handleInputChange('phone', value)}
+                                required
+                                error={errors.phone}
+                                disabled={isLoading}
+                            />
+                            <Input
+                                id="email"
+                                label="Email*"
+                                placeholder=""
+                                type="email"
+                                value={formData.email}
+                                onChange={(value) => handleInputChange('email', value)}
+                                required
+                                error={errors.email}
+                                disabled={isLoading}
+                            />
+                        </div>
+
+                        <div
+                            className={styles.fileUploadContainer}
+                            onClick={() => !isLoading && fileInputRef.current?.click()}
+                            onDrop={handleFileDrop}
+                            onDragOver={handleDragOver}
+                            onDragLeave={handleDragLeave}
+                        >
+                            <input
+                                type="file"
+                                ref={fileInputRef}
+                                onChange={handleFileChange}
+                                style={{ display: 'none' }}
+                                accept=".zip,.rar"
+                                multiple
+                                disabled={isLoading}
+                            />
+                            <span>Загрузите все необходимые файлы одним архивом (*.zip, *.rar) Максимальный размер загружаемого файла 26Мб</span>
+                        </div>
+
+                        {attachedFiles.length > 0 && (
+                            <div className={styles.attachedFilesContainer}>
+                                <h3 className={styles.attachedFilesTitle}>Прикрепленные файлы:</h3>
+                                <div className={styles.attachedFilesList}>
+                                    {attachedFiles.map((file, index) => (
+                                        <div key={index} className={styles.attachedFileItem}>
+                                            <div className={styles.fileIcon}>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#3A93FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M14 2V8H20" stroke="#3A93FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M16 13H8" stroke="#3A93FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M16 17H8" stroke="#3A93FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M10 9H9H8" stroke="#3A93FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                </svg>
+                                            </div>
+                                            <div className={styles.fileInfo}>
+                                                <div className={styles.fileName}>{file.name}</div>
+                                                <div className={styles.fileSize}>{formatFileSize(file.size)}</div>
+                                            </div>
+                                            <button
+                                                type="button"
+                                                className={styles.removeFileButton}
+                                                onClick={() => removeFile(index)}
+                                                disabled={isLoading}
+                                            >
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 4L4 12" stroke="#A2A2AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M4 4L12 12" stroke="#A2A2AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        <textarea
+                            id="question"
+                            className={styles.textarea}
+                            placeholder="Ваш вопрос"
+                            value={formData.question}
+                            onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleInputChange('question', e.target.value)}
+                            disabled={isLoading}
+                        />
+                    </div>
+
+                    <div className={styles.consentAndSubmitContainer}>
+                        <div className={`${styles.checkboxContainer} ${errors.consent ? styles.checkboxError : ''}`}>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    id="consent"
+                                    className={styles.checkbox}
+                                    checked={isConsentChecked}
+                                    onChange={handleConsentChange}
+                                    required
+                                    disabled={isLoading}
+                                />
+                                <span className={styles.checkmark}></span>
+                                <span className={styles.consentLabelText}>
+                                    Нажимая на кнопку, вы даёте согласие на обработку своих <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">персональных данных</a> и соглашаетесь c <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+                                </span>
+                            </label>
+                            {errors.consent && <span className={styles.errorMessageCheckbox}>{errors.consent}</span>}
+                        </div>
+                    </div>
+                    <button type="submit" className={styles.submitButton} disabled={isLoading}>
+                        {isLoading ? 'Отправка...' : 'Отправить заявку'}
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.0009 15.5858L13.5867 12L10.0009 8.41426C9.95209 8.36544 9.90937 8.31284 9.87276 8.25739C9.61648 7.86924 9.65919 7.34176 10.0009 7.00005C10.3914 6.60952 11.0246 6.60952 11.4151 7.00005L15.708 11.2929C15.8955 11.4805 16.0009 11.7348 16.0009 12C16.0009 12.2653 15.8955 12.5196 15.708 12.7072L11.4151 17C11.0246 17.3906 10.3914 17.3906 10.0009 17C9.61038 16.6095 9.61038 15.9764 10.0009 15.5858Z" fill="black" />
+                        </svg>
+                    </button>
+                </form>
+            )}
         </section>
     );
 }

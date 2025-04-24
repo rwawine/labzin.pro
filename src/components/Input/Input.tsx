@@ -10,9 +10,10 @@ interface InputProps {
   onChange: (value: string) => void;
   required?: boolean;
   error?: string;
+  disabled?: boolean;
 }
 
-export default function Input({ id, label, placeholder, type = 'text', value, onChange, required = false, error }: InputProps) {
+export default function Input({ id, label, placeholder, type = 'text', value, onChange, required = false, error, disabled = false }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
   const hasError = !!error;
 
@@ -20,20 +21,21 @@ export default function Input({ id, label, placeholder, type = 'text', value, on
     <div className={styles.inputGroup}>
       <label
         htmlFor={id}
-        className={`${styles.label} ${(isFocused || value) ? styles.labelFocused : ''} ${hasError ? styles.labelError : ''}`}
+        className={`${styles.label} ${(isFocused || value) ? styles.labelFocused : ''} ${hasError ? styles.labelError : ''} ${disabled ? styles.labelDisabled : ''}`}
       >
         {label}
       </label>
       <input
         id={id}
         type={type}
-        className={`${styles.input} ${hasError ? styles.inputError : ''}`}
+        className={`${styles.input} ${hasError ? styles.inputError : ''} ${disabled ? styles.inputDisabled : ''}`}
         placeholder={isFocused ? '' : placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         required={required}
+        disabled={disabled}
         aria-invalid={hasError}
         aria-describedby={hasError ? `${id}-error` : undefined}
       />

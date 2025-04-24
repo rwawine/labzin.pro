@@ -23,6 +23,11 @@
   color: #007bff;
 }
 
+.labelDisabled {
+  color: #ccc;
+  background-color: #f5f5f5;
+}
+
 .input {
   background-color: #fff;
   width: 100%;
@@ -39,6 +44,12 @@
 .input:focus {
   outline: none;
   border-color: #007bff;
+}
+
+.input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  color: #888;
 }
 
 .input::placeholder {

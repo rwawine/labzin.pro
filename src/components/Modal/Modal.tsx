@@ -12,14 +12,45 @@ interface ModalProps {
 export default function Modal({ isOpen, onClose, children }: ModalProps) {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Здесь будет логика отправки формы
-    console.log({ name, phone });
-    onClose();
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, phone }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Произошла ошибка при отправке формы');
+      }
+
+      setIsSuccess(true);
+      // Закрываем модальное окно через 2 секунды после успешной отправки
+      setTimeout(() => {
+        onClose();
+        setIsSuccess(false);
+        setName('');
+        setPhone('');
+      }, 2000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Произошла ошибка при отправке формы');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -50,6 +81,15 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
             <div className={styles.content}>
               {children ? (
                 children
+              ) : isSuccess ? (
+                <div className={styles.successContent}>
+                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 58.6667C46.7276 58.6667 58.6667 46.7276 58.6667 32C58.6667 17.2724 46.7276 5.33334 32 5.33334C17.2724 5.33334 5.33334 17.2724 5.33334 32C5.33334 46.7276 17.2724 58.6667 32 58.6667Z" fill="#4CAF50"/>
+                    <path d="M21.3333 32L28.4444 39.1111L42.6667 24.8889" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <h2 className={styles.successTitle}>Успешно отправлено!</h2>
+                  <p className={styles.successText}>Мы свяжемся с вами в ближайшее время</p>
+                </div>
               ) : (
                 <>
                   <div className={styles.header}>
@@ -65,6 +105,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
                       value={name}
                       onChange={setName}
                       required
+                      disabled={isLoading}
                     />
 
                     <Input
@@ -75,13 +116,29 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
                       value={phone}
                       onChange={setPhone}
                       required
+                      disabled={isLoading}
                     />
 
+                    {error && (
+                      <div className={styles.error}>
+                        {error}
+                      </div>
+                    )}
+
                     <div className={styles.buttons}>
-                      <button type="submit" className={styles.submitButton}>
-                        Отправить заявку
+                      <button 
+                        type="submit" 
+                        className={styles.submitButton}
+                        disabled={isLoading}
+                      >
+                        {isLoading ? 'Отправка...' : 'Отправить заявку'}
                       </button>
-                      <button type="button" className={styles.cancelButton} onClick={onClose}>
+                      <button 
+                        type="button" 
+                        className={styles.cancelButton} 
+                        onClick={onClose}
+                        disabled={isLoading}
+                      >
                         Отмена
                       </button>
                     </div>
