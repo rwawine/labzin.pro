@@ -1,36 +1,43 @@
 import { Metadata } from 'next';
 import styles from './layout.module.css';
 
+// app/blog/page.ts  — Блог
 export const metadata: Metadata = {
-  title: 'Блог | Labzin.pro - Статьи о веб-разработке и дизайне',
-  description: 'Читайте актуальные статьи о веб-разработке, UI/UX дизайне, трендах IT и технологиях. Экспертные материалы от команды Labzin.pro',
-  keywords: 'веб-разработка, UI/UX дизайн, IT статьи, программирование, frontend, backend, дизайн интерфейсов',
+  metadataBase: new URL('https://labzin.pro'),
+  title: {
+    template: "%s — Labzin.pro",
+    default: "Блог",
+  },
+  description: "Авторские статьи, обзоры норм, новости и кейсы в сфере проектирования инженерных систем. Будьте в курсе трендов.",
+  keywords: "блог, статьи, новости, инженерное проектирование, кейсы, нормы, Labzin.pro",
+  authors: [{ name: "Labzin.pro" }],
+  creator: "Labzin.pro",
+  publisher: "Labzin.pro",
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
-    title: 'Блог | Labzin.pro - Статьи о веб-разработке и дизайне',
-    description: 'Читайте актуальные статьи о веб-разработке, UI/UX дизайне, трендах IT и технологиях',
-    url: 'https://labzin.pro/blog',
-    siteName: 'Labzin.pro',
-    images: [
-      {
-        url: '/assets/image/blog-og.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Labzin.pro Blog',
-      },
-    ],
-    locale: 'ru_RU',
-    type: 'website',
+    type: "website",
+    locale: "ru_RU",
+    url: "https://labzin.pro/blog",
+    siteName: "Labzin.pro",
+    title: "Блог Labzin.pro — Labzin.pro",
+    description: "Авторские статьи, обзоры норм, новости и кейсы в сфере проектирования инженерных систем. Будьте в курсе трендов.",
+    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Блог — Labzin.pro" }],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Блог | Labzin.pro - Статьи о веб-разработке и дизайне',
-    description: 'Читайте актуальные статьи о веб-разработке, UI/UX дизайне, трендах IT и технологиях',
-    images: ['/assets/image/blog-og.jpg'],
+    card: "summary_large_image",
+    title: "Блог Labzin.pro — Labzin.pro",
+    description: "Авторские статьи, обзоры норм, новости и кейсы в сфере проектирования инженерных систем. Будьте в курсе трендов.",
+    images: ["/images/og-image.jpg"],
   },
-  alternates: {
-    canonical: 'https://labzin.pro/blog',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 },
   },
+  verification: { google: "your-google-site-verification", yandex: "your-yandex-verification" },
+  alternates: { canonical: "https://labzin.pro/blog" },
 };
+
 
 export default function BlogLayout({
   children,

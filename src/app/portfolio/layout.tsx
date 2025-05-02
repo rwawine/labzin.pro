@@ -1,47 +1,43 @@
 import { Metadata } from 'next';
 import Script from 'next/script';
 
+// app/portfolio/page.ts  — Портфолио
 export const metadata: Metadata = {
-  title: 'Портфолио | Labzin.pro - Реализованные проекты инженерных систем',
-  description: 'Ознакомьтесь с нашими реализованными проектами инженерных систем. Более 650 успешных объектов, включая проекты СПС, СОУЭ, АУВПТ, ВПВ, СКУД и других систем.',
-  keywords: 'инженерные системы, проектирование, СПС, СОУЭ, АУВПТ, ВПВ, СКУД, ЛВС, СВН, автоматизация, портфолио проектов',
+  metadataBase: new URL('https://labzin.pro'),
+  title: {
+    template: "%s — Labzin.pro",
+    default: "Портфолио выполненных проектов",
+  },
+  description: "Кейсы по проектированию инженерных систем: электроснабжение, ВК, ОВиК, слаботочные сети. Реальные примеры работ Labzin.pro.",
+  keywords: "портфолио, проекты, кейсы, проектирование, инженерные системы, Labzin.pro",
+  authors: [{ name: "Labzin.pro" }],
+  creator: "Labzin.pro",
+  publisher: "Labzin.pro",
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
-    title: 'Портфолио | Labzin.pro - Реализованные проекты инженерных систем',
-    description: 'Ознакомьтесь с нашими реализованными проектами инженерных систем. Более 650 успешных объектов.',
-    url: 'https://labzin.pro/portfolio',
-    siteName: 'Labzin.pro',
-    images: [
-      {
-        url: '/assets/image/portfolioBackgroundImage.png',
-        width: 1200,
-        height: 630,
-        alt: 'Портфолио Labzin.pro',
-      },
-    ],
-    locale: 'ru_RU',
-    type: 'website',
+    type: "website",
+    locale: "ru_RU",
+    url: "https://labzin.pro/portfolio",
+    siteName: "Labzin.pro",
+    title: "Портфолио выполненных проектов — Labzin.pro",
+    description: "Кейсы по проектированию инженерных систем: электроснабжение, ВК, ОВиК, слаботочные сети. Реальные примеры работ Labzin.pro.",
+    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Портфолио — Labzin.pro" }],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Портфолио | Labzin.pro - Реализованные проекты инженерных систем',
-    description: 'Ознакомьтесь с нашими реализованными проектами инженерных систем. Более 650 успешных объектов.',
-    images: ['/assets/image/portfolioBackgroundImage.png'],
-  },
-  alternates: {
-    canonical: 'https://labzin.pro/portfolio',
+    card: "summary_large_image",
+    title: "Портфолио выполненных проектов — Labzin.pro",
+    description: "Кейсы по проектированию инженерных систем: электроснабжение, ВК, ОВиК, слаботочные сети. Реальные примеры работ Labzin.pro.",
+    images: ["/images/og-image.jpg"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+    googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 },
   },
+  verification: { google: "your-google-site-verification", yandex: "your-yandex-verification" },
+  alternates: { canonical: "https://labzin.pro/portfolio" },
 };
+
 
 const jsonLd = {
   '@context': 'https://schema.org',

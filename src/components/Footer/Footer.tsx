@@ -2,23 +2,23 @@
 
 import styles from './Footer.module.css';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 export default function Footer() {
-    const scrollToTop = () => {
-        try {
-            if (typeof window !== 'undefined') {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
-        } catch (error) {
-            console.error('Error scrolling to top:', error);
-            if (typeof window !== 'undefined') {
-                window.scrollTo(0, 0);
-            }
+    useEffect(() => {
+        const scrollToTop = () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+
+        const button = document.querySelector(`.${styles.scrollTop}`);
+        if (button) {
+            button.addEventListener('click', scrollToTop);
+            return () => button.removeEventListener('click', scrollToTop);
         }
-    };
+    }, []);
 
     return (
         <footer className={styles.footer}>
@@ -88,11 +88,10 @@ export default function Footer() {
                         </ul>
                     </nav>
                 </div>
-                <button className={styles.scrollTop} onClick={scrollToTop} aria-label="Прокрутить наверх">
+                <button className={styles.scrollTop} aria-label="Прокрутить наверх">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.10577 10.955L11.2501 4.81066V21.25C11.2501 21.6642 11.5858 22 12.0001 22C12.4143 22 12.7501 21.6642 12.7501 21.25V4.81066L18.8943 10.955C19.1872 11.2478 19.6621 11.2478 19.955 10.955C20.2479 10.6621 20.2479 10.1872 19.955 9.89429L12.5304 2.46967C12.2375 2.17678 11.7626 2.17678 11.4697 2.46967L4.04511 9.89429C4.04282 9.89658 4.04055 9.89888 4.0383 9.90119C4.02253 9.91736 4.00764 9.93407 3.99362 9.95125C3.84947 10.128 3.79798 10.3551 3.83917 10.5679C3.86663 10.7097 3.93527 10.8451 4.04511 10.955C4.08172 10.9916 4.12118 11.0236 4.16276 11.0511C4.45388 11.2433 4.84949 11.2112 5.10577 10.955Z" fill="black" />
                     </svg>
-
                 </button>
             </div>
             <div className={styles.footerBottom}>

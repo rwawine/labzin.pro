@@ -142,7 +142,7 @@ export default function FAQ() {
                     Не нашли ответ на свой вопрос?
                 </p>
                 <button className={styles.button}>
-                    <span className={styles.buttonText}>Спросить у нас</span>
+                    <span className={styles.buttonText}>Задать вопрос</span>
                 </button>
             </div>
 
