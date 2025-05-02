@@ -77,14 +77,14 @@ export default function Footer() {
                     <h3>Навигация</h3>
                     <nav>
                         <ul>
-                            <li>Проектирование</li>
-                            <li>Сертификаты</li>
-                            <li>Портфолио</li>
-                            <li>Полезная информация</li>
-                            <li>Сотрудничество</li>
-                            <li>О компании</li>
-                            <li>Вакансии</li>
-                            <li>Блог</li>
+                            <li><Link href="/design">Проектирование</Link></li>
+                            <li><Link href="/certificates">Сертификаты</Link></li>
+                            <li><Link href="/portfolio">Портфолио</Link></li>
+                            <li><Link href="/useful">Полезная информация</Link></li>
+                            <li><Link href="/cooperation">Сотрудничество</Link></li>
+                            <li><Link href="/about">О компании</Link></li>
+                            <li><Link href="/career">Вакансии</Link></li>
+                            <li><Link href="/blog">Блог</Link></li>
                         </ul>
                     </nav>
                 </div>

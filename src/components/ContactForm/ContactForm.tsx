@@ -80,7 +80,7 @@ export default function ContactForm() {
             formDataToSend.append('phone', formData.phone);
             formDataToSend.append('email', formData.email);
             formDataToSend.append('question', formData.question);
-            
+
             if (attachedFiles.length > 0) {
                 attachedFiles.forEach(file => {
                     formDataToSend.append('files', file);
@@ -133,28 +133,28 @@ export default function ContactForm() {
         }
     };
 
-    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => { // Используем ChangeEvent
+    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
             const files = Array.from(e.target.files);
 
-            // Проверка размера файлов (максимум 26Мб)
+            // Проверка размера файлов (максимум 50Мб)
             const totalSize = files.reduce((sum, file) => sum + file.size, 0);
-            const maxSize = 26 * 1024 * 1024; // 26Мб в байтах
+            const maxSize = 50 * 1024 * 1024; // 50Мб в байтах
 
             if (totalSize > maxSize) {
-                alert('Общий размер файлов превышает 26Мб');
+                alert('Общий размер файлов превышает 50Мб');
                 return;
             }
 
             // Проверка расширений файлов
-            const validExtensions = ['.zip', '.rar'];
+            const validExtensions = ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.jpg', '.jpeg', '.png', '.zip', '.rar'];
             const invalidFiles = files.filter(file => {
                 const extension = '.' + file.name.split('.').pop()?.toLowerCase();
                 return !validExtensions.includes(extension);
             });
 
             if (invalidFiles.length > 0) {
-                alert('Поддерживаются только файлы с расширениями .zip и .rar');
+                alert('Поддерживаются только файлы с расширениями: PDF, DOC, DOCX, XLS, XLSX, JPG, JPEG, PNG, ZIP, RAR');
                 return;
             }
 
@@ -162,31 +162,31 @@ export default function ContactForm() {
         }
     };
 
-    const handleFileDrop = (e: DragEvent<HTMLDivElement>) => { // Используем DragEvent
+    const handleFileDrop = (e: DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         e.stopPropagation();
 
         if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
             const files = Array.from(e.dataTransfer.files);
 
-            // Проверка размера файлов (максимум 26Мб)
+            // Проверка размера файлов (максимум 50Мб)
             const totalSize = files.reduce((sum, file) => sum + file.size, 0);
-            const maxSize = 26 * 1024 * 1024; // 26Мб в байтах
+            const maxSize = 50 * 1024 * 1024; // 50Мб в байтах
 
             if (totalSize > maxSize) {
-                alert('Общий размер файлов превышает 26Мб');
+                alert('Общий размер файлов превышает 50Мб');
                 return;
             }
 
             // Проверка расширений файлов
-            const validExtensions = ['.zip', '.rar'];
+            const validExtensions = ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.jpg', '.jpeg', '.png', '.zip', '.rar'];
             const invalidFiles = files.filter(file => {
                 const extension = '.' + file.name.split('.').pop()?.toLowerCase();
                 return !validExtensions.includes(extension);
             });
 
             if (invalidFiles.length > 0) {
-                alert('Поддерживаются только файлы с расширениями .zip и .rar');
+                alert('Поддерживаются только файлы с расширениями: PDF, DOC, DOCX, XLS, XLSX, JPG, JPEG, PNG, ZIP, RAR');
                 return;
             }
 
@@ -245,8 +245,8 @@ export default function ContactForm() {
             {isSuccess ? (
                 <div className={styles.successContent}>
                     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M32 58.6667C46.7276 58.6667 58.6667 46.7276 58.6667 32C58.6667 17.2724 46.7276 5.33334 32 5.33334C17.2724 5.33334 5.33334 17.2724 5.33334 32C5.33334 46.7276 17.2724 58.6667 32 58.6667Z" fill="#4CAF50"/>
-                        <path d="M21.3333 32L28.4444 39.1111L42.6667 24.8889" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M32 58.6667C46.7276 58.6667 58.6667 46.7276 58.6667 32C58.6667 17.2724 46.7276 5.33334 32 5.33334C17.2724 5.33334 5.33334 17.2724 5.33334 32C5.33334 46.7276 17.2724 58.6667 32 58.6667Z" fill="#4CAF50" />
+                        <path d="M21.3333 32L28.4444 39.1111L42.6667 24.8889" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     <h2 className={styles.successTitle}>Успешно отправлено!</h2>
                     <p className={styles.successText}>Мы свяжемся с вами в ближайшее время</p>
@@ -312,11 +312,11 @@ export default function ContactForm() {
                                 ref={fileInputRef}
                                 onChange={handleFileChange}
                                 style={{ display: 'none' }}
-                                accept=".zip,.rar"
+                                accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.zip,.rar"
                                 multiple
                                 disabled={isLoading}
                             />
-                            <span>Загрузите все необходимые файлы одним архивом (*.zip, *.rar) Максимальный размер загружаемого файла 26Мб</span>
+                            <span>Загрузите файлы. Максимальный размер загружаемых файлов 50Мб</span>
                         </div>
 
                         {attachedFiles.length > 0 && (

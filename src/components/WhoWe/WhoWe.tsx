@@ -1,7 +1,15 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import styles from './WhoWe.module.css'
+import Link from 'next/link';
 
 export default function WhoWe() {
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
+
     return (
         <section className={styles.WhoWe}>
             <div className={styles.container}>
@@ -14,7 +22,7 @@ export default function WhoWe() {
                         className={styles.image}
                     />
 
-                    <div className={styles.card}>
+                    <div className={`${styles.card} ${isHovered ? styles.cardHovered : ''}`}>
                         <div className={styles.header}>
                             <div className={styles.logo}>
                                 labzin.pro
@@ -36,11 +44,16 @@ export default function WhoWe() {
                             Наша миссия заключается в объединении технологичности и индивидуальном подходе к каждому проекту, включая навыки прохождения государственной экспертизы.
                         </p>
 
-                        <button className={styles.button}>
+                        <Link 
+                            href="/about"
+                            className={styles.button}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
                             <span className={styles.arrow}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M7 7L17 17M17 17V7M17 17H7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg></span>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

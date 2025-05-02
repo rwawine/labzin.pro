@@ -44,19 +44,28 @@
 }
 
 .button {
-    width: 366px;
-    height: 48px;
     background-color: #3A93FE;
     border-radius: 12px;
     border: none;
     color: #FAFAFA;
-    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Montserrat, sans-serif;
+    text-decoration: none;
+    line-height: 150%;
+    color: #fff;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color .2s;
+    box-shadow: unset;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    width: fit-content;
 }
 
 .button:hover {
@@ -116,7 +125,7 @@
 
 /* Планшеты */
 @media (max-width: 1200px) {
-    
+
     .container {
         flex-direction: column;
         gap: 40px;
@@ -130,17 +139,17 @@
     .button {
         width: 100%;
     }
-    
+
     .rightColumn {
         gap: 8px;
         flex-direction: column;
     }
-    
+
     .cardsContainer {
         gap: 8px;
         width: 100%;
     }
-    
+
     .card {
         padding: 24px;
         gap: 24px;
@@ -149,46 +158,46 @@
 
 /* Мобильные устройства */
 @media (max-width: 768px) {
-    
+
     .container {
         gap: 32px;
     }
-    
+
     .leftColumn {
         gap: 24px;
     }
-    
+
     .textBlock {
         gap: 24px;
     }
-    
+
     .title {
         font-size: 28px;
     }
-    
+
     .description {
         font-size: 16px;
     }
-    
+
     .button {
         height: 44px;
         font-size: 14px;
     }
-    
+
     .card {
         padding: 20px;
         gap: 20px;
     }
-    
+
     .icon {
         width: 48px;
         height: 48px;
     }
-    
+
     .cardTitle {
         font-size: 16px;
     }
-    
+
     .cardText {
         font-size: 14px;
     }
@@ -196,48 +205,48 @@
 
 /* Маленькие мобильные устройства */
 @media (max-width: 480px) {
-    
+
     .container {
         gap: 24px;
     }
-    
+
     .leftColumn {
         gap: 20px;
     }
-    
+
     .textBlock {
         gap: 20px;
     }
-    
+
     .title {
         font-size: 24px;
     }
-    
+
     .description {
         font-size: 14px;
     }
-    
+
     .button {
         height: 40px;
         font-size: 14px;
         border-radius: 8px;
     }
-    
+
     .card {
         padding: 16px;
         gap: 16px;
         border-radius: 12px;
     }
-    
+
     .icon {
         width: 40px;
         height: 40px;
     }
-    
+
     .cardTitle {
         font-size: 15px;
     }
-    
+
     .cardText {
         font-size: 13px;
     }

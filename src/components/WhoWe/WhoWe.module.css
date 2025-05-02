@@ -46,6 +46,17 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.cardHovered {
+    background: #3579E0;
+}
+
+.cardHovered .subtitle,
+.cardHovered .text,
+.cardHovered .logo {
+    color: #FFFFFF;
 }
 
 .header {
@@ -100,6 +111,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.button:hover {
+    background: #FFFFFF;
+}
+
+.button:hover .arrow svg path {
+    stroke: #3579E0;
 }
 
 .arrow {
