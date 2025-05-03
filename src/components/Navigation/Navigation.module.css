@@ -486,6 +486,12 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .designMenuItem {
+    width: 100%;
+  }
+}
+
 @media (max-width: 480px) {
   .container {
     padding: 0 16px;

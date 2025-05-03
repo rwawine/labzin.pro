@@ -222,7 +222,7 @@ export default function ContactForm() {
                 <div className={styles.header}>
                     <h2 className={styles.title}>Форма обратной связи</h2>
                     <div className={styles.whatsappButton}>
-                        <a href="https://wa.me/79160000000">Связаться по WhatsApp</a>
+                        <a href="https://wa.me/79262865772">Связаться по WhatsApp</a>
                         <div className={styles.whatsappIcon}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <g clipPath="url(#clip0_259_8150)">

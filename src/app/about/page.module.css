@@ -190,19 +190,16 @@
 
 .sectionHeader {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 64px;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .sectionTitle {
-  font-family: Montserrat;
-  font-weight: 500;
-  font-size: 48px;
-  line-height: 110.00000000000001%;
-  letter-spacing: 0%;
-  max-width: 640px;
-  color: rgba(13, 14, 20, 1);
+  font-weight: 600;
+  font-size: 32px;
+  text-align: left;
+  color: #0d0e14;
+  line-height: 1.2;
 }
 
 .sectionDescription {
@@ -273,6 +270,7 @@
   .sectionHeader {
     flex-direction: column;
     gap: 20px;
+    align-items: flex-start;
   }
 
   .sectionDescription {
@@ -291,7 +289,6 @@
 .certificateHeader {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   gap: 80px;
 }
 
@@ -419,7 +416,6 @@
 
 @media screen and (max-width: 1635px) {
   .certificateHeader {
-    flex-direction: column;
     gap: 30px;
   }
 
@@ -440,6 +436,14 @@
 @media screen and (max-width: 768px) {
   .certificateSlide {
     width: 100%;
+  }
+  .clientCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .clientCard {
+    max-width: unset;
+    
   }
 }
 
@@ -581,4 +585,10 @@
   cursor: pointer;
   padding: 5px 10px;
   z-index: 1001;
+}
+
+@media (max-width: 720px) {
+  .certificateHeader {
+    flex-direction: column;
+  }
 }

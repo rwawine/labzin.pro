@@ -16,8 +16,8 @@
 
 .certificateHeader {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: flex-end;
   gap: 80px;
 }
 
@@ -150,7 +150,6 @@
 
 @media screen and (max-width: 1635px) {
   .certificateHeader {
-    flex-direction: column;
     gap: 30px;
   }
 
