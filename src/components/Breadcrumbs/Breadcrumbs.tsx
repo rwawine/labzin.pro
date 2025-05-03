@@ -62,7 +62,7 @@ const getBreadcrumbs = (pathname: string, blogPosts?: BlogPost[]): BreadcrumbIte
 }
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ blogPosts }) => {
-  const pathname = usePathname()
+  const pathname = usePathname() || ''
   const router = useRouter()
   const breadcrumbs = getBreadcrumbs(pathname, blogPosts)
 
