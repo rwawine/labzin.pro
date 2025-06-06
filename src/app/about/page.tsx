@@ -6,6 +6,7 @@ import ContactForm from '@/components/ContactForm/ContactForm';
 import Map from '@/components/Map/Map';
 import WhyChooseUs from '@/components/WhyChooseUs/WhyChooseUs';
 import Navigation from '../../components/Navigation/Navigation';
+import Modal from '@/components/Modal/Modal';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation as SwiperNavigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -19,18 +20,19 @@ export default function About() {
   const [isPaused, setIsPaused] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
 
   const certificates = [
     {
-      src: "/assets/image/certificates/Аварийное освещение «СКАТ».png",
+      src: "/assets/image/certificates/Аварийное освещение.png",
       alt: "Проектирование систем пожарной сигнализации на базе ИСО «Орион»"
     },
     {
-      src: "/assets/image/certificates/Основы СКС LANMASTER -1.png",
+      src: "/assets/image/certificates/Основы СКС.png",
       alt: "Сертификат от Hikvision"
     },
     {
-      src: "/assets/image/certificates/Проектирование систем пожарной сигнализации на базе ИСО «Орион»-1.png",
+      src: "/assets/image/certificates/Проектирование систем.png",
       alt: "Основы СКС LANMASTER"
     },
     {
@@ -38,7 +40,7 @@ export default function About() {
       alt: "Аварийное освещение «СКАТ»"
     },
     {
-      src: "/assets/image/certificates/Курс проектирование, инсталляции и обслуживания объектов а использованием продукции СКС Лан Юнион.png",
+      src: "/assets/image/certificates/Курс проектирование.png",
       alt: "Курс проектирование, инсталляции и обслуживания объектов с использованием продукции СКС Лан Юнион"
     }
   ];
@@ -154,7 +156,11 @@ export default function About() {
             <p className={styles.bannerDescription}>
               Мы разрабатываем продуманные и качественные инженерные системы, которые функционируют без сбоев. Доверьте проектирование профессионалам и получите решения, соответствующие всем стандартам и вашим требованиям.
             </p>
-            <button className={styles.bannerButton} aria-label="Обсудить проект">
+            <button 
+              className={styles.bannerButton} 
+              aria-label="Обсудить проект"
+              onClick={() => setIsProjectModalOpen(true)}
+            >
               <span>Обсудить проект</span>
               <span className={styles.buttonIcon}>›</span>
             </button>
@@ -386,6 +392,10 @@ export default function About() {
         </div>
         <Map />
         <ContactForm />
+        <Modal 
+          isOpen={isProjectModalOpen} 
+          onClose={() => setIsProjectModalOpen(false)} 
+        />
       </main>
     </div>
   );

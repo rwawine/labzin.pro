@@ -6,6 +6,7 @@ import styles from './page.module.css';
 import Navigation from '@/components/Navigation/Navigation';
 import Map from '@/components/Map/Map';
 import ContactForm from '@/components/ContactForm/ContactForm';
+import Modal from '@/components/Modal/Modal';
 
 interface DropdownItem {
   title: string;
@@ -83,6 +84,7 @@ const dropdownAnimation = {
 
 export default function Portfolio() {
   const [openItems, setOpenItems] = useState<{ [key: number]: boolean }>({});
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
 
   const toggleItem = (index: number) => {
     setOpenItems(prev => ({
@@ -104,7 +106,10 @@ export default function Portfolio() {
             Комплексное проектирование инженерных систем для любых объектов
           </p>
           <div className={styles.heroButtons}>
-            <button className={styles.primaryButton}>
+            <button 
+              className={styles.primaryButton}
+              onClick={() => setIsProjectModalOpen(true)}
+            >
               Обсудить проект <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.0009 15.5858L13.5867 12L10.0009 8.41426C9.95209 8.36544 9.90937 8.31284 9.87276 8.25739C9.61648 7.86924 9.65919 7.34176 10.0009 7.00005C10.3914 6.60952 11.0246 6.60952 11.4151 7.00005L15.708 11.2929C15.8955 11.4805 16.0009 11.7348 16.0009 12C16.0009 12.2653 15.8955 12.5196 15.708 12.7072L11.4151 17C11.0246 17.3906 10.3914 17.3906 10.0009 17C9.61038 16.6095 9.61038 15.9764 10.0009 15.5858Z" />
               </svg>
@@ -254,11 +259,13 @@ export default function Portfolio() {
               <p className={styles.cardSubtitle}>PDF. 4 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
-              <div className={styles.cardButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+              <a href="/assets/file/Пример СПС, СОУЭ и ТРВ.pdf" download>
+                <button className={styles.cardButton} aria-label="Скачать файл">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </a>
             </div>
           </div>
           <div className={styles.card}>
@@ -287,11 +294,13 @@ export default function Portfolio() {
               <p className={styles.cardSubtitle}>PDF. 3 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
-              <div className={styles.cardButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+              <a href="/assets/file/Пример СОУЭ.pdf" download>
+                <button className={styles.cardButton} aria-label="Скачать файл">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </a>
             </div>
           </div>
           <div className={styles.card}>
@@ -320,11 +329,13 @@ export default function Portfolio() {
               <p className={styles.cardSubtitle}>PDF. 3 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
-              <div className={styles.cardButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+              <a href="/assets/file/Пример АУВПТ и ВПВ.pdf" download>
+                <button className={styles.cardButton} aria-label="Скачать файл">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </a>
             </div>
           </div>
           <div className={styles.card}>
@@ -353,11 +364,13 @@ export default function Portfolio() {
               <p className={styles.cardSubtitle}>PDF. 1 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
-              <div className={styles.cardButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+            <a href="/assets/file/Пример СОТС.pdf" download>
+                <button className={styles.cardButton} aria-label="Скачать файл">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </a>
             </div>
           </div>
           <div className={styles.card}>
@@ -386,11 +399,13 @@ export default function Portfolio() {
               <p className={styles.cardSubtitle}>PDF. 2 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
-              <div className={styles.cardButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+              <a href="/assets/file/Пример СКУД.pdf" download>
+                <button className={styles.cardButton} aria-label="Скачать файл">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </a>
             </div>
           </div>
           <div className={styles.card}>
@@ -419,11 +434,13 @@ export default function Portfolio() {
               <p className={styles.cardSubtitle}>PDF. 5 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
-              <div className={styles.cardButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+              <a href="/assets/file/Пример ЛВС.pdf" download>
+                <button className={styles.cardButton} aria-label="Скачать файл">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </a>
             </div>
           </div>
           <div className={styles.card}>
@@ -452,11 +469,13 @@ export default function Portfolio() {
               <p className={styles.cardSubtitle}>PDF. 965 Кб</p>
             </div>
             <div className={styles.cardButtonDiv}>
-              <div className={styles.cardButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+              <a href="/assets/file/Пример СВН.pdf" download>
+                <button className={styles.cardButton} aria-label="Скачать файл">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </a>
             </div>
           </div>
           <div className={styles.card}>
@@ -485,11 +504,13 @@ export default function Portfolio() {
               <p className={styles.cardSubtitle}>PDF. 2 Мб</p>
             </div>
             <div className={styles.cardButtonDiv}>
-              <div className={styles.cardButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+              <a href="/assets/file/Пример АК.pdf" download>
+                <button className={styles.cardButton} aria-label="Скачать файл">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </a>
             </div>
           </div>
           <div className={styles.card}>
@@ -518,17 +539,23 @@ export default function Portfolio() {
               <p className={styles.cardSubtitle}>PDF. 552 Кб</p>
             </div>
             <div className={styles.cardButtonDiv}>
-              <div className={styles.cardButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+              <a href="/assets/file/Пример АПС.pdf" download>
+                <button className={styles.cardButton} aria-label="Скачать файл">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </a>
             </div>
           </div>
         </div>
         <p className={styles.backgroundTextExample}>Документы</p>
       </div>
       <ContactForm />
+      <Modal 
+        isOpen={isProjectModalOpen} 
+        onClose={() => setIsProjectModalOpen(false)} 
+      />
     </>
   );
 } 

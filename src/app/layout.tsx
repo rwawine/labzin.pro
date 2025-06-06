@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import '../styles/globals.css';
+import { Metadata } from 'next';
+import './globals.css';
 import Navigation from "@/components/Navigation/Navigation";
 import Footer from "@/components/Footer/Footer";
 
@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://labzin.pro'),
   title: {
     template: "%s — Labzin.pro",
-    default: "Labzin.pro — Инжиниринг и проектирование",
+    default: "Инжиниринг и проектирование инженерных систем — Labzin.pro",
   },
-  description: "Labzin.pro — компания, специализирующаяся на инжиниринге и проектировании.",
-  keywords: "инжиниринг, проектирование, инженерные системы, слаботочные сети, пожарная безопасность, безопасность, видеонаблюдение, охранные системы",
+  description: "Профессиональное проектирование инженерных систем: электроснабжение, ВК, ОВиК, слаботочные сети, безопасность. Компания Labzin.pro.",
+  keywords: "инжиниринг, проектирование, инженерные системы, электроснабжение, ВК, ОВиК, слаботочные сети, Labzin.pro",
   authors: [{ name: "Labzin.pro" }],
   creator: "Labzin.pro",
   publisher: "Labzin.pro",
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ru_RU",
-    url: "https://labzin.pro",
+    url: "https://labzin.pro/",
     siteName: "Labzin.pro",
-    title: "Labzin.pro — Инжиниринг и проектирование",
-    description: "Labzin.pro — компания, специализирующаяся на инжиниринге и проектировании.",
+    title: "Инжиниринг и проектирование — Labzin.pro",
+    description: "Профессиональное проектирование инженерных систем: электроснабжение, ВК, ОВиК, слаботочные сети, безопасность. Компания Labzin.pro.",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Labzin.pro — Инжиниринг и проектирование",
-    description: "Labzin.pro — компания, специализирующаяся на инжиниринге и проектировании.",
+    title: "Инжиниринг и проектирование — Labzin.pro",
+    description: "Профессиональное проектирование инженерных систем: электроснабжение, ВК, ОВиК, слаботочные сети, безопасность. Компания Labzin.pro.",
     images: ["/images/og-image.jpg"],
   },
   robots: {
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     yandex: "your-yandex-verification",
   },
   alternates: {
-    canonical: "https://labzin.pro",
+    canonical: "https://labzin.pro/",
   },
 };
 

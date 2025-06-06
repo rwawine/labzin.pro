@@ -23,15 +23,15 @@ export default function Certificates() {
 
   const certificates = [
     {
-      src: "/assets/image/certificates/Аварийное освещение «СКАТ».png",
+      src: "/assets/image/certificates/Аварийное освещение.png",
       alt: "Сертификат по аварийному освещению «СКАТ»"
     },
     {
-      src: "/assets/image/certificates/Основы СКС LANMASTER -1.png",
+      src: "/assets/image/certificates/Основы СКС.png",
       alt: "Сертификат от Hikvision"
     },
     {
-      src: "/assets/image/certificates/Проектирование систем пожарной сигнализации на базе ИСО «Орион»-1.png",
+      src: "/assets/image/certificates/Проектирование систем.png",
       alt: "Основы СКС LANMASTER"
     },
     {
@@ -39,7 +39,7 @@ export default function Certificates() {
       alt: "Аварийное освещение «СКАТ»"
     },
     {
-      src: "/assets/image/certificates/Курс проектирование, инсталляции и обслуживания объектов а использованием продукции СКС Лан Юнион.png",
+      src: "/assets/image/certificates/Курс проектирование.png",
       alt: "Курс проектирование, инсталляции и обслуживания объектов с использованием продукции СКС Лан Юнион"
     }
   ];

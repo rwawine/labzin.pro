@@ -1,9 +1,12 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './WhyChooseUs.module.css'
+import Modal from '../Modal/Modal'
 
 export default function WhyChooseUs() {
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false)
+
   return (
     <section className={styles.whyChooseUs}>
       <div className={styles.container}>
@@ -14,7 +17,10 @@ export default function WhyChooseUs() {
               Качественная работа — это инвестиция в ваш успех и наше долгосрочное сотрудничество.
             </p>
           </div>
-          <button className={styles.button}>
+          <button 
+            className={styles.button}
+            onClick={() => setIsProjectModalOpen(true)}
+          >
             Обсудить проект
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -120,6 +126,10 @@ export default function WhyChooseUs() {
           </div>
         </div>
       </div>
+      <Modal 
+        isOpen={isProjectModalOpen} 
+        onClose={() => setIsProjectModalOpen(false)} 
+      />
     </section>
   )
 }

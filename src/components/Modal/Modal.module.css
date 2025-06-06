@@ -3,13 +3,13 @@
   top: 0;
   left: 0;
   right: 0;
-  font-family: Montserrat;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  font-family: Montserrat;
 }
 
 .modal {
@@ -20,49 +20,6 @@
   position: relative;
   box-shadow: 0 12px 24px rgba(60, 83, 135, 0.09),
               0 16px 32px rgba(74, 80, 94, 0.05);
-}
-
-.successContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px 0;
-}
-
-.successTitle {
-  font-size: 24px;
-  font-weight: 600;
-  color: #4CAF50;
-  margin: 16px 0 8px;
-}
-
-.successText {
-  font-size: 16px;
-  color: #666;
-  margin: 0;
-} 
-
-.closeButton {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1F1F1F;
-  transition: background-color 0.2s;
-}
-
-.closeButton:hover {
-  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .content {
@@ -88,39 +45,157 @@
 .form {
   display: flex;
   flex-direction: column;
+  gap: 24px;
+}
+
+.inputFieldsContainer {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.inputGroup label {
-  font-size: 14px;
-  color: #A2A2AE;
-}
-
-.inputGroup input {
-  height: 56px;
-  padding: 0 16px;
-  border: 1px solid #D8DBE1;
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
   border-radius: 12px;
-  font-size: 16px;
-  color: #2F2F33;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1F1F1F;
+  transition: background-color 0.2s;
 }
 
-.inputGroup input:focus {
-  outline: none;
-  border-color: #3A93FF;
+.closeButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-.buttons {
+.successContent {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 16px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.successTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #4CAF50;
+  margin: 16px 0 8px;
+}
+
+.successText {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.checkboxContainer label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #C8C8E1;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.checkboxContainer:hover .checkmark {
+  border-color: #3A93FE;
+  background-color: rgba(58, 147, 254, 0.05);
+}
+
+.checkbox:checked ~ .checkmark {
+  background-color: #3A93FE;
+  border-color: #3A93FE;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox:checked ~ .checkmark:after {
+  display: block;
+}
+
+.consentLabelText {
+  color: #A2A2AE;
+  font-size: 16px;
+  line-height: 1.5;
+  user-select: none;
+}
+
+.consentLabelText a {
+  color: #3A93FE;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.consentLabelText a:hover {
+  color: #2B7AE5;
+  text-decoration: underline;
+}
+
+.checkboxError .checkmark {
+  border-color: #FF4D4D;
+}
+
+.checkboxError .checkbox:checked ~ .checkmark {
+  border-color: #FF4D4D;
+  background-color: #FF4D4D;
+}
+
+.errorMessageCheckbox {
+  color: #FF4D4D;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-left: 32px;
+}
+
+.error {
+  color: #FF4D4D;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .submitButton {
@@ -134,24 +209,29 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .submitButton:hover {
   background-color: #2980E3;
 }
 
-.cancelButton {
-  height: 48px;
-  color: #1F1F1F;
-  font-family: Montserrat;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
+.submitButton:disabled {
+  background-color: #A2A2AE;
+  cursor: not-allowed;
 }
 
-.cancelButton:hover {
-  background-color: rgba(152, 154, 162, 0.2);
+.submitButton svg {
+  transition: transform 0.2s ease;
+}
+
+.submitButton svg path {
+  fill: white;
+}
+
+.submitButton:hover svg {
+  transform: translateX(4px);
 } 
