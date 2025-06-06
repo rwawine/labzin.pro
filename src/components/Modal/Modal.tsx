@@ -80,7 +80,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
 
     if (Object.keys(validationErrors).length > 0) {
       const firstErrorField = Object.keys(validationErrors)[0] as keyof FormErrors;
-      const element = document.getElementById(firstErrorField);
+      const element = document.getElementById(`modal-${firstErrorField}`);
       element?.focus();
       return;
     }
@@ -167,7 +167,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
                   <form className={styles.form} onSubmit={handleSubmit} noValidate>
                     <div className={styles.inputFieldsContainer}>
                       <Input
-                        id="name"
+                        id="modal-name"
                         label="Имя*"
                         placeholder=""
                         value={formData.name}
@@ -178,7 +178,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
                       />
 
                       <Input
-                        id="phone"
+                        id="modal-phone"
                         label="Телефон*"
                         placeholder=""
                         type="tel"
@@ -190,7 +190,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
                       />
 
                       <Input
-                        id="email"
+                        id="modal-email"
                         label="Email*"
                         placeholder=""
                         type="email"
@@ -207,7 +207,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
                         <label>
                           <input
                             type="checkbox"
-                            id="consent"
+                            id="modal-consent"
                             className={styles.checkbox}
                             checked={isConsentChecked}
                             onChange={handleConsentChange}
