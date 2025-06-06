@@ -73,6 +73,8 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    e.stopPropagation();
+    
     const validationErrors = validateForm();
     setErrors(validationErrors);
 
