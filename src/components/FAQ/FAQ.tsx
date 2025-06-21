@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from './FAQ.module.css'
 import { motion, AnimatePresence } from 'framer-motion'
+import Modal from '../Modal/Modal'
 
 interface FAQItem {
     id: number;
@@ -195,9 +196,18 @@ const faqData: FAQItem[] = [
 
 export default function FAQ() {
     const [activeId, setActiveId] = useState<number | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleToggle = (id: number) => {
         setActiveId(activeId === id ? null : id);
+    };
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
     };
 
     return (
@@ -209,7 +219,7 @@ export default function FAQ() {
                 <p className={styles.subtitle}>
                     Не нашли ответ на свой вопрос?
                 </p>
-                <button className={styles.button}>
+                <button className={styles.button} onClick={handleOpenModal}>
                     <span className={styles.buttonText}>Задать вопрос</span>
                 </button>
             </div>
@@ -259,6 +269,8 @@ export default function FAQ() {
                     </div>
                 ))}
             </div>
+            
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
         </div>
     )
 }

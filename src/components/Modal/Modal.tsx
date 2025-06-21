@@ -74,7 +74,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     const validationErrors = validateForm();
     setErrors(validationErrors);
 
@@ -111,9 +111,9 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
         setErrors({});
       }, 2000);
     } catch (err) {
-      setErrors(prev => ({ 
-        ...prev, 
-        submit: err instanceof Error ? err.message : 'Произошла ошибка при отправке формы' 
+      setErrors(prev => ({
+        ...prev,
+        submit: err instanceof Error ? err.message : 'Произошла ошибка при отправке формы'
       }));
     } finally {
       setIsLoading(false);
