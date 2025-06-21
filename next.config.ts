@@ -1,27 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['framer-motion'],
-  },
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
-  // Optimize CSS loading and prevent unnecessary preloading
-  webpack: (config, { dev, isServer }) => {
-    if (!dev && !isServer) {
-      // Optimize CSS extraction and prevent unnecessary preloading
-      config.optimization.splitChunks.cacheGroups.styles = {
-        name: 'styles',
-        test: /\.(css|scss)$/,
-        chunks: 'all',
-        enforce: true,
-        priority: 20,
-      };
-    }
-    return config;
-  },
   // Optimize images and static assets
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -30,10 +9,6 @@ const nextConfig: NextConfig = {
   },
   // Enable compression
   compress: true,
-  // Optimize bundle size
-  swcMinify: true,
-  // Font optimization
-  optimizeFonts: true,
 };
 
 export default nextConfig;
