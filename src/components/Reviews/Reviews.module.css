@@ -148,7 +148,7 @@
 }
 
 .reviewText {
-    font-family: Montserrat;
+    font-family: var(--font-montserrat), sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -165,7 +165,7 @@
 }
 
 .authorName {
-    font-family: Montserrat;
+    font-family: var(--font-montserrat), sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 130%;
@@ -176,7 +176,7 @@
 }
 
 .companyName {
-    font-family: Montserrat;
+    font-family: var(--font-montserrat), sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;

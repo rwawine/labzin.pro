@@ -1,7 +1,7 @@
 .inputGroup {
   position: relative;
   width: 100%;
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   border-radius: 12px;
 }
 

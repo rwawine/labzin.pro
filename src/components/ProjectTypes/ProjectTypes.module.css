@@ -11,12 +11,12 @@
   justify-content: space-between;
   gap: clamp(20px, 5vw, 80px);
   width: 100%;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   position: relative;
 }
 
 .backgroundTitle {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat);
   font-weight: 800;
   font-size: 220px;
   line-height: 120%;
@@ -62,7 +62,7 @@
   padding: 12px 20px;
   font-size: 16px;
   font-weight: 500;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   text-decoration: none;
   line-height: 150%;
   color: #fff;

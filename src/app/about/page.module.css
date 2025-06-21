@@ -16,7 +16,7 @@
 .aboutTitle {
   color: #0d0e14;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: Raleway;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 48px;
   font-style: italic;
   font-weight: 500;
@@ -27,7 +27,7 @@
 .aboutText {
   color: #2f2f33;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   font-style: italic;
   font-weight: 500;
@@ -41,7 +41,7 @@
   position: relative;
   height: 565px;
   text-align: left;
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   margin-bottom: 120px;
 }
 
@@ -118,7 +118,7 @@
 
 .backgroundText {
   color: rgba(120, 120, 165, 0.05);
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(150px, 20vw, 310px);
   font-style: normal;
   font-weight: 800;
@@ -203,7 +203,7 @@
 }
 
 .sectionDescription {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -245,7 +245,7 @@
 }
 
 .cardTitle {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 130%;
@@ -254,7 +254,7 @@
 }
 
 .cardDescription {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -310,7 +310,7 @@
 }
 
 .certificateDescription {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -468,7 +468,7 @@
 }
 
 .bannerTitle {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 500;
   font-size: 32px;
   line-height: 110.00000000000001%;
@@ -478,7 +478,7 @@
 }
 
 .bannerDescription {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
@@ -498,7 +498,7 @@
   border: none;
   border-radius: 12px;
   color: white;
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -592,3 +592,4 @@
     flex-direction: column;
   }
 }
+

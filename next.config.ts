@@ -32,6 +32,8 @@ const nextConfig: NextConfig = {
   compress: true,
   // Optimize bundle size
   swcMinify: true,
+  // Font optimization
+  optimizeFonts: true,
 };
 
 export default nextConfig;

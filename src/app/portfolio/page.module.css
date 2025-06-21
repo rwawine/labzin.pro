@@ -90,7 +90,7 @@
   padding: 12px 20px;
   font-size: 16px;
   font-weight: 500;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   text-decoration: none;
   line-height: 150%;
   color: #fff;
@@ -117,7 +117,7 @@
   padding: 12px 20px;
   font-size: 16px;
   font-weight: 500;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   text-decoration: none;
   line-height: 150%;
   color: #fff;
@@ -163,7 +163,7 @@
   position: relative;
   height: 565px;
   text-align: left;
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   margin-bottom: 120px;
 }
 
@@ -240,7 +240,7 @@
 
 .backgroundText {
   color: rgba(120, 120, 165, 0.05);
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(150px, 20vw, 310px);
   font-style: normal;
   font-weight: 800;
@@ -254,7 +254,7 @@
 .backgroundTextExample {
   position: absolute;
   color: rgba(120, 120, 165, 0.05);
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(150px, 20vw, 240px);
   font-style: normal;
   font-weight: 800;
@@ -638,3 +638,4 @@
     grid-template-columns: 1fr;
   }
 }
+

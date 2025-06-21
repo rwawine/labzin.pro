@@ -31,7 +31,7 @@
 }
 
 .articleDate {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 120%;
@@ -56,7 +56,7 @@
 }
 
 .readMore {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 160%;
@@ -67,3 +67,4 @@
 .readMore:hover {
   color: rgba(58, 147, 254, 1);
 }
+

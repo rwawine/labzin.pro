@@ -9,6 +9,8 @@ const montserrat = Montserrat({
   weight: ['200', '300', '400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-montserrat',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 export const metadata: Metadata = {

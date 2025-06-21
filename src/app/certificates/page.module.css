@@ -39,7 +39,7 @@
 }
 
 .certificateDescription {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -188,7 +188,7 @@
 }
 
 .sectionTitleStandart {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 500;
   font-style: italic;
   font-size: 48px;
@@ -318,7 +318,7 @@
 }
 
 .principleTitle {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 130%;
@@ -327,7 +327,7 @@
 }
 
 .principleDescription {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;

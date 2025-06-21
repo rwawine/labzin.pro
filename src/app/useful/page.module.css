@@ -209,7 +209,7 @@
 .backgroundTextExample {
   position: absolute;
   color: rgba(120, 120, 165, 0.05);
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(150px, 20vw, 240px);
   font-style: normal;
   font-weight: 800;

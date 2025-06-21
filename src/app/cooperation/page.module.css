@@ -90,7 +90,7 @@
   padding: 12px 20px;
   font-size: 16px;
   font-weight: 500;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   text-decoration: none;
   line-height: 150%;
   color: #fff;
@@ -117,7 +117,7 @@
   padding: 12px 20px;
   font-size: 16px;
   font-weight: 500;
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   text-decoration: none;
   line-height: 150%;
   color: #fff;
@@ -177,7 +177,7 @@
 }
 
 .partnersTitle {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 500;
   max-width: 560px;
   font-size: 48px;
@@ -262,7 +262,7 @@
 
 .cardLogoText,
 .cardTitle {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 100%;
@@ -345,7 +345,7 @@
 }
 
 .comparisonTitle {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 48px;
   font-weight: 500;
   line-height: 110%;
@@ -357,7 +357,7 @@
 }
 
 .responsibilityTitle {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 500;
   font-style: italic;
   font-size: 70px;
@@ -369,7 +369,7 @@
 }
 
 .responsibilityBackgroundText {
-  font-family: Montserrat;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 800;
   font-size: 310px;
   line-height: 100%;
@@ -529,3 +529,4 @@
     font-size: 24px;
   }
 }
+
