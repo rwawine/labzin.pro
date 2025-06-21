@@ -1,17 +1,8 @@
 import { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import './fonts.css';
 import './globals.css';
 import Navigation from "@/components/Navigation/Navigation";
 import Footer from "@/components/Footer/Footer";
-
-const montserrat = Montserrat({
-  subsets: ['latin', 'cyrillic'],
-  weight: ['200', '300', '400', '500', '600', '700'],
-  display: 'swap',
-  variable: '--font-montserrat',
-  preload: true,
-  fallback: ['system-ui', 'arial'],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://labzin.pro'),
@@ -77,8 +68,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={montserrat.variable}>
-      <body className={montserrat.className}>
+    <html lang="ru">
+      <body>
         {children}
         <Footer />
       </body>

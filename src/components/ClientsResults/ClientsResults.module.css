@@ -8,7 +8,7 @@
     width: 100%;
     max-width: 1660px;
     height: 740px;
-    font-family: var(--font-montserrat), sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0 auto;
     padding: 0 15px;
     box-sizing: border-box;
@@ -81,7 +81,7 @@
 }
 
 .listItemText {
-    font-family: var(--font-montserrat), sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -251,3 +251,4 @@
         height: 250px;
     }
 }
+

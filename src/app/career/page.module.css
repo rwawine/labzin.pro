@@ -17,7 +17,7 @@
 .careerTitle {
   color: #242424;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 48px;
   font-style: normal;
   font-weight: 500;
@@ -34,7 +34,7 @@
   left: 10%;
   z-index: -1;
   color: rgba(120, 120, 165, 0.02);
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 310px;
   font-style: normal;
   font-weight: 800;
@@ -52,3 +52,4 @@
 .careerBlockRight {
   width: 100%;
 }
+
